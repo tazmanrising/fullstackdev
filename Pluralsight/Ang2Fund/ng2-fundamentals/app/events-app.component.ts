@@ -7,9 +7,13 @@ import { Component } from '@angular/core'
     // We are missing 1 step though 
     // We have to register ALL of our components 
     // app.module.ts  needs to know about it
-    template: `
+    // template: `
+    //     <nav-bar></nav-bar>
+    //     <events-list></events-list>
+    //     `  
+     template: `
         <nav-bar></nav-bar>
-        <events-list></events-list>
+        <router-outlet></router-outlet>
         `  
 })
 export class EventsAppComponent {

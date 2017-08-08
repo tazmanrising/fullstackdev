@@ -9,26 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var EventsAppComponent = (function () {
-    function EventsAppComponent() {
+var ToastrService = (function () {
+    function ToastrService() {
     }
-    return EventsAppComponent;
+    // create 4 methods to wrap around each of toastrs messages
+    ToastrService.prototype.success = function (message, title) {
+        toastr.success(message, title);
+    };
+    ToastrService.prototype.info = function (message, title) {
+        toastr.info(message, title);
+    };
+    ToastrService.prototype.warning = function (message, title) {
+        toastr.warning(message, title);
+    };
+    ToastrService.prototype.Error = function (message, title) {
+        toastr.error(message, title);
+    };
+    return ToastrService;
 }());
-EventsAppComponent = __decorate([
-    core_1.Component({
-        selector: 'events-app',
-        //template: '<h2>Hello Worldddd</h2>'
-        // We created a component events-list and we are pulling it into this page
-        // We are missing 1 step though 
-        // We have to register ALL of our components 
-        // app.module.ts  needs to know about it
-        // template: `
-        //     <nav-bar></nav-bar>
-        //     <events-list></events-list>
-        //     `  
-        template: "\n        <nav-bar></nav-bar>\n        <router-outlet></router-outlet>\n        "
-    }),
+ToastrService = __decorate([
+    core_1.Injectable(),
     __metadata("design:paramtypes", [])
-], EventsAppComponent);
-exports.EventsAppComponent = EventsAppComponent;
-//# sourceMappingURL=events-app.component.js.map
+], ToastrService);
+exports.ToastrService = ToastrService;
+//# sourceMappingURL=toastr.service.js.map
