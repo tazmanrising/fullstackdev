@@ -23,6 +23,7 @@ var toastr_service_1 = require("./common/toastr.service");
 var request_1 = require("./events/request");
 var event_details_component_1 = require("./events/event-details/event-details.component");
 var routes_1 = require("./routes");
+var create_event_component_1 = require("./events/create-event.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -41,6 +42,7 @@ AppModule = __decorate([
             event_thumbnail_component_1.EventThumbnailComponent,
             event_details_component_1.EventDetailsComponent,
             navbar_component_1.NavBarComponent,
+            create_event_component_1.CreateEventComponent
         ],
         providers: [
             event_service_1.EventService,
