@@ -51,6 +51,7 @@ var EventsListComponent = (function () {
     EventsListComponent.prototype.ngOnInit = function () {
         console.log('ngOnInit list component');
         this.eventsList = this.eventService.getEvents();
+        console.log('tom event', this.eventsList);
         //this.eventService.getCoins()
         //this.eventsList = this.route.snapshot.data['events']
     };

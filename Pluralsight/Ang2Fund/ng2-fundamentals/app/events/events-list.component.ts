@@ -72,6 +72,7 @@ export class EventsListComponent implements OnInit {
          
         console.log('ngOnInit list component')
         this.eventsList = this.eventService.getEvents()
+        console.log('tom event', this.eventsList)
 
         //this.eventService.getCoins()
 

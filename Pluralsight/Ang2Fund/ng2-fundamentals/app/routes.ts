@@ -7,10 +7,11 @@ import { CoinsListComponent } from './coins/coins-list.component'
 
 
 export const appRoutes:Routes = [
+    { path: 'coins', component: CoinsListComponent },
     { path: 'events/new', component: CreateEventComponent },  // process this first , since we have events/:id
     { path: 'events', component: EventsListComponent },
     { path: 'events/:id', component: EventDetailsComponent },
-    { path: 'coins', component: CoinsListComponent },
     { path: '', redirectTo: '/events', pathMatch: 'full'}
+    //{ path: '', redirectTo: '/events', pathMatch: 'full'}
     //{ path: }
 ]

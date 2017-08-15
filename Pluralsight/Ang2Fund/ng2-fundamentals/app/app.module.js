@@ -24,6 +24,8 @@ var request_1 = require("./events/request");
 var event_details_component_1 = require("./events/event-details/event-details.component");
 var routes_1 = require("./routes");
 var create_event_component_1 = require("./events/create-event.component");
+var coins_list_component_1 = require("./coins/coins-list.component");
+var coin_service_1 = require("./coins/coin.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -39,6 +41,7 @@ AppModule = __decorate([
         declarations: [
             events_app_component_1.EventsAppComponent,
             events_list_component_1.EventsListComponent,
+            coins_list_component_1.CoinsListComponent,
             event_thumbnail_component_1.EventThumbnailComponent,
             event_details_component_1.EventDetailsComponent,
             navbar_component_1.NavBarComponent,
@@ -46,6 +49,7 @@ AppModule = __decorate([
         ],
         providers: [
             event_service_1.EventService,
+            coin_service_1.CoinService,
             toastr_service_1.ToastrService,
             request_1.Request
         ],
