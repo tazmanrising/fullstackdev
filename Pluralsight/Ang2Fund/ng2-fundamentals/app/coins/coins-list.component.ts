@@ -6,7 +6,7 @@ import { CoinService } from './coin.service'
     template: `
     <div>test</div>
        <div *ngFor="let coin of coinsList">
-      <span>{{coin | json}}</span>
+     <span>{{coin.coinName}} {{coin.price | currency:'USD':true:'1.2-2'}}</span> 
     </div>
     `
 })
@@ -28,7 +28,10 @@ export class CoinsListComponent implements OnInit {
             .subscribe(
             (data) => {
                 for (let key in data) {
-                    this.coinsList.push(data[key]);
+                    //this.coinsList.push(data[key]);
+                    this.coinsList.push({coinName:key,price:data[key].USD}); //change is here
+
+                    //console.log('key', key)
                 }
             },
             (error) => console.log("error : " + error)

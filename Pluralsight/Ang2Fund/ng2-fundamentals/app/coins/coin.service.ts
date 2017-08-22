@@ -17,9 +17,12 @@ export class CoinService {
         private http: Http) { }
 
     getAllCoins(): Observable<Response> {
-       // return this.http.get(this._url).map(res => res.json());
-        return this.http.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC,EOS,DASH&tsyms=USD').map(res => res.json());
-        
+        return this.http.get(this._url)
+            .map(res => res.json())
+            .do(data => console.log('coins ' + JSON.stringify(data)))
+            .catch(this.handleError)
+        //return this.http.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC,EOS,DASH&tsyms=USD').map(res => res.json());
+
     }
 
 

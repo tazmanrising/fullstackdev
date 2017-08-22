@@ -22,7 +22,8 @@ var CoinsListComponent = (function () {
         this.coinService.getAllCoins()
             .subscribe(function (data) {
             for (var key in data) {
-                _this.coinsList.push(data[key]);
+                //this.coinsList.push(data[key]);
+                _this.coinsList.push({ coinName: key, price: data[key].USD }); //change is here
             }
         }, function (error) { return console.log("error : " + error); });
         // this.coinService.getAllCoins()
@@ -33,7 +34,7 @@ var CoinsListComponent = (function () {
 }());
 CoinsListComponent = __decorate([
     core_1.Component({
-        template: "\n    <div>test</div>\n       <div *ngFor=\"let coin of coinsList\">\n      <span>{{coin | json}}</span>\n    </div>\n    "
+        template: "\n    <div>test</div>\n       <div *ngFor=\"let coin of coinsList\">\n     <span>{{coin.coinName}} {{coin.price | currency:'USD':true:'1.2-2'}}</span> \n    </div>\n    "
     }),
     __metadata("design:paramtypes", [coin_service_1.CoinService])
 ], CoinsListComponent);
