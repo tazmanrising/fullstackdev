@@ -1,0 +1,163 @@
+<div class="row col-sm-12">
+  <div class="col-sm-3 vet-search-margin-right"><b>Last Name</b></div>
+  <div class="col-sm-2 vet-search-margin-right"><b>First Name</b></div>
+  <div class="col-sm-2 vet-search-margin-right"><b>Veteran Number</b></div>
+  <div class="col-sm-2 vet-search-margin-right"><b>Phone</b></div>
+  <div class="col-sm-2 vet-search-margin-right"><b>SSN (Last 4)</b></div>
+  <div class="col-sm-3 vet-search-margin-right"><b>Date of Birth</b></div>
+</div>
+<div class="row col-sm-12">
+  <div class="col-sm-3 vet-search-margin-right">
+    <input type="text"
+           class="form-control"
+           id="VetLastName"
+           name="lastName"
+           [(ngModel)]="parameters.lastName"
+           ng-model-options="{updateOn: keyup}"
+           (keyup)="checkValid()"
+           (blur)="checkValid()" />
+  </div>
+  <div class="col-sm-2 vet-search-margin-right">
+    <input type="text"
+           class="form-control"
+           id="VetFirstName"
+           name="firstName"
+           [(ngModel)]="parameters.firstName"
+           ng-model-options="{updateOn: keyup}"
+           (keyup)="checkValid()"
+           (blur)="checkValid()" />
+  </div>
+  <div class="col-sm-2 vet-search-margin-right">
+    <input type="text"
+           class="form-control"
+           id="VetId"
+           name="memberNumber"
+           [(ngModel)]="parameters.memberNumber"
+           ng-model-options="{updateOn: keyup}"
+           (keyup)="checkValid()"
+           (blur)="checkValid()" />
+  </div>
+  <div class="col-sm-2 vet-search-margin-right">
+    <input class="form-control" type="number"
+           required
+           id="VetPhone"
+           name="vetPhone"
+           pattern="\d{10}"
+           maxlength="10"
+           IeNumeric="true"
+           NoDot="true"
+           [(ngModel)]="parameters.phone"
+           ng-model-options="{updateOn: keyup}"
+           (keyup)="checkValid()"
+           (blur)="checkValid()" />
+  </div>
+  <div class="col-sm-2 vet-search-margin-right" style=" margin-right: -4.8% !important;">
+    <input class="form-control vet-ssn"
+           required
+           type="number"
+           pattern="\d{4}"
+           id="VetSsn"
+           name="vetSsn"
+           [(ngModel)]="parameters.ssnLast4"
+           IeNumeric="true"
+           NoDot="true"
+           maxlength="4"
+           ng-model-options="{updateOn: keyup}"
+           (keyup)="checkValid()"
+           [ngbTooltip]=""
+           #ssnTooltip="ngbTooltip"
+           triggers="manual"
+           [class.ssn-error]="ssnHasError"
+           style="width: 85%;" />
+  </div>
+  <div class="col-sm-3 vet-search-margin-right">
+    <input id="dateOfBirth"
+           class="form-control left"
+           placeholder="mm/dd/yyyy"
+           name="dateOfBirth"
+           ngbDatepicker
+           #d="ngbDatepicker"
+           #dateOfBirth="ngModel"
+           required
+           [(ngModel)]="parameters.dateOfBirth"
+           style="width: 64%; float: left;"
+           ng-model-options="{updateOn: keyup}"
+           (keyup)="checkValid()"
+           (ngModelChange)="checkValid()" />
+
+    <button id="datePickerPopup" class="left btn btn-primary" (click)="d.toggle();" type="button" style="height: 36px;">
+      <i class="fa fa-calendar"></i>
+    </button>
+  </div>
+</div>
+<div class="row col-sm-12 margin-top-10">
+  <div class="col-sm-3 vet-search-margin-right"><b>VAMC</b></div>
+  <div class="col-sm-3 vet-search-margin-right"><b>Program</b></div>
+  <div class="col-sm-2 vet-search-margin-right"><b>City</b></div>
+  <div class="col-sm-3 vet-search-margin-right"><b>State</b></div>
+  <div class="col-sm-2 vet-search-margin-right"><b>Zip</b></div>
+</div>
+<div class="row col-sm-12">
+  <div class="col-sm-3 vet-search-margin-right">
+    <ng-select type="text"
+               id="VetVamc"
+               name="vetVamc"
+               [items]="vamcList"
+               [allowClear]="true"
+               [(ngModel)]="parameters.vamc"
+               #vetVamc="ngModel"
+               placeholder="Select VAMC"
+               ng-model-options="{updateOn: keyup, removed}"
+               (removed)="vamcRemoved()"
+               (selected)="selected()">
+    </ng-select>
+  </div>
+  <div class="col-sm-3 vet-search-margin-right">
+    <ng-select type="text"
+               id="VetProgram"
+               name="vetProgram"
+               [items]="programs"
+               [(ngModel)]="parameters.program"
+               #vetProgram="ngModel"
+               placeholder="Select A Program"
+               (removed)="programRemoved()"
+               (selected)="selected()">
+
+    </ng-select>
+  </div>
+  <div class="col-sm-2 vet-search-margin-right">
+    <input type="text"
+           class="form-control"
+           id="VetCity"
+           name="vetCity"
+           [(ngModel)]="parameters.city"
+           ng-model-options="{updateOn: keyup}"
+           (keyup)="checkValid()"
+           (ngModelChange)="checkValid()"  />
+  </div>
+  <div class="col-sm-3 vet-search-margin-right">
+    <ng-select type="text"
+               id="VetState"
+               name="vetState"
+               [items]="states"
+               [(ngModel)]="parameters.state"
+               #vetState="ngModel"
+               placeholder="Select State"
+               (removed)="stateRemoved()"
+               (selected)="selected()">
+    </ng-select>
+  </div>
+  <div class="col-sm-2 vet-search-margin-right">
+    <input class="form-control"
+           id="VetZip"
+           name="vetZip"
+           required
+           type="number"
+           pattern="\d{5}"
+           IeNumeric="true"
+           NoDot="true"
+           [(ngModel)]="parameters.postalCode"
+           (keyup)="checkValid()"
+           (ngModelChange)="checkValid()" />
+  </div>
+</div>

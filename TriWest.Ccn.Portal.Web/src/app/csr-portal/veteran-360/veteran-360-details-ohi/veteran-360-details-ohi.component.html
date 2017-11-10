@@ -1,0 +1,24 @@
+<div class="margin-bottom-15 margin-left-10 margin-right-10">
+    <ngx-datatable class="bootstrap"
+                   [rows]="veteran.veteranOHIList" 
+                   [columnMode]="'force'" 
+                   [headerHeight]="50"
+                   [rowHeight]="50" 
+                   [scrollbarV]="true" 
+                   [footerHeight]="0" 
+                   [width]="180" 
+                   [messages]="{emptyMessage: 'No results'}"
+                   [sorts]="[{prop:'effectiveDate', dir:'desc'}]">
+        <ngx-datatable-column name="Care Classification" prop="CareClassificationCode" [width]="220"></ngx-datatable-column>
+        <ngx-datatable-column name="Carrier Name" prop="OHICarrierName" [width]="220"></ngx-datatable-column>
+        <ngx-datatable-column name="Member ID" prop="OHIMemberID" [width]="160"></ngx-datatable-column>
+        <ngx-datatable-column name="Effective Date" prop="StartDate" [width]="200">
+            <ng-template let-value="value" ngx-datatable-cell-template>{{value | date: 'M/d/yyyy'}}</ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Group ID" prop="HeathGroupID"></ngx-datatable-column>
+        <ngx-datatable-column name="Plan ID" prop="HealthPlanID"></ngx-datatable-column>
+        <ngx-datatable-column name="End Date" prop="endDate">
+            <ng-template let-value="value" ngx-datatable-cell-template>{{value | date: 'M/d/yyyy'}}</ng-template>
+        </ngx-datatable-column>
+    </ngx-datatable>
+</div>

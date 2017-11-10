@@ -1,0 +1,39 @@
+﻿<div class="row padding-top-5">
+  <div class="col-sm-6 text-bottom">
+    <h4 class="quadrant-title left">Referrals</h4>
+  </div>
+  <div class="col-sm-6">
+    <button class="btn btn-primary right" (click)="viewAll()">View All</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <ngx-datatable class="bootstrap vamc-auths"
+                   [rows]="results"
+                   [loadingIndicator]="true"
+                   [cssClasses]="{sortAscending: 'sort-desc'}"
+                   [columnMode]="'force'"
+                   [headerHeight]="42"
+                   [rowHeight]="42"
+                   [selectionType]="'single'"
+                   [scrollbarV]="false"
+                   style="height: 264px;">
+      <ngx-datatable-column name="Referral #" prop="referralNumber">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <a href="http://{{ value }}" target="_blank">{{ value }}</a>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Profile" prop="profile"></ngx-datatable-column>
+      <ngx-datatable-column name="Veteran Name" prop="veteranName"></ngx-datatable-column>
+      <ngx-datatable-column name="Program" prop="program"> </ngx-datatable-column>
+      <ngx-datatable-column name="Create Date" prop="createdOn">
+        <ng-template let-value="value" ngx-datatable-cell-template>{{value | date: 'M/d/yyyy'}}</ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Reason Code" prop="reasonCode"> </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+</div>
+<!-- 
+          <ngx-datatable-column name="Member ID" prop="veteranId"> </ngx-datatable-column>
+      <ngx-datatable-column name="SSN" prop="ssnLast4"> </ngx-datatable-column>
+    -->

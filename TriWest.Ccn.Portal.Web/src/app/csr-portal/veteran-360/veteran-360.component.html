@@ -1,0 +1,50 @@
+<portal-search class="row no-gutters portal-search-custom" [defaultsearch]="'veteran'"></portal-search>
+<view-label type="VETERAN360" [value]="veteranFullName"></view-label>
+<div class="row no-gutters"> 
+  <div class="col-sm-6 ccn-pad-panel-right">
+    <section class="panel col-sm-12" style="height: 320px;">
+      <!-- ngbTableset component, standard implementation.-->
+      <ngb-tabset class="nav-tabs-horizontal">
+        <ngb-tab id="veteranDetailsTab" title="Veteran Details">
+          <ng-template ngbTabContent>
+            <veteran-details [veteran]='veteran'></veteran-details>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab id="ohiTab" title="OHI">
+          <ng-template ngbTabContent>
+            <veteran-360-details-ohi [veteran]='veteran'></veteran-360-details-ohi>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab id="enrollmentTab" title="Enrollment">
+          <ng-template ngbTabContent>
+            <veteran-360-details-enrollment [veteran]='veteran'></veteran-360-details-enrollment>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </section>
+  </div>
+  <div class="col-sm-6 ccn-pad-panel-right">
+    <section class="panel col-sm-12" style="height: 300px;">
+      <ngb-tabset class="nav-tabs-horizontal">
+        <ngb-tab id="careRadiusNotesTab" title="Care Radius Notes">
+          <ng-template ngbTabContent>
+            <cr-notes [notes]='notes'></cr-notes>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </section>
+  </div>
+</div>
+<div class="row no-gutters">
+  <div class="col-sm-6 ccn-pad-panel-right">
+    <section class="panel col-sm-12" style="height: 320px;">
+      <auth-veteran [veteranId]="veteranId"></auth-veteran>
+    </section>
+  </div>
+  <div class="col-sm-6 ccn-pad-panel-right" style="">
+    <!-- inline height style temporary for presentation. Remove when components added. -->
+    <section class="panel col-sm-12" style="height: 320px;">
+      <claim-veteran [veteranId]="veteranId"></claim-veteran>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+﻿<div *ngIf="veteran" class="margin-left-15">
+  <div class="row margin-top-3">
+    <div class="col-sm-6">
+      Name: <strong >{{ veteran.firstName + ' ' + veteran.lastName }}</strong>
+    </div>
+    <div class="col-sm-6" *ngFor="let phone of veteran.phones | matchPhoneType:'Home'">
+       Phone: <strong> {{ phone.phoneNumber }} ({{ phone.phoneType}})</strong>  
+    </div>
+  </div>
+  <div class="row margin-top-3">
+    <div class="col-sm-6">
+      Veteran Number: <strong >{{ veteran.memberNumber }}</strong>
+    </div>
+    <div class="col-sm-6" *ngFor="let phone of veteran.phones | matchPhoneType:'Mobile'">
+      Phone: <strong> {{ phone.phoneNumber }} ({{ phone.phoneType}}) </strong>    
+    </div>
+  </div>
+  <div class="row margin-top-3">
+    <div class="col-sm-6">
+      Gender: <strong >{{ veteran.gender }}</strong>
+    </div>
+    <div class="col-sm-6" *ngFor="let phone of veteran.phones | matchPhoneType:'Work'">
+      Phone: <strong> {{ phone.phoneNumber }} ({{ phone.phoneType}})  </strong>  
+    </div>
+  </div>
+  <div class="row margin-top-3">
+    <div class="col-sm-6">
+      Age:  <strong >{{ veteran.age }}</strong>
+    </div>
+    <div class="col-sm-6">
+      Email: <strong >{{ veteran.emailAddress }}</strong>
+    </div>
+  </div>
+  <div class="row margin-top-3">
+    <div class="col-sm-6">
+      SSN: <strong >{{ veteran.ssnLast4 }}</strong>
+    </div>
+    <div class="col-sm-6">
+      Default Address: 
+    </div>
+  </div>
+  <div class="row margin-top-3">
+    <div class="col-sm-6">
+      Date of Birth: <strong >{{ veteran.dateOfBirth | date:'shortDate'}}</strong>
+    </div>
+    <div class="col-sm-6" *ngFor="let address of veteran.addresses | matchAddressType:'Default'">
+      <strong>{{ address.street }}</strong>
+    </div>
+  </div>
+  <div class="row margin-top-3">
+    <div class="col-sm-6">
+      Date of Death: <strong >{{ veteran.dateOfDeath | date:'shortDate' }}</strong>
+    </div>
+    <div class="col-sm-6" *ngFor="let address of veteran.addresses | matchAddressType:'Default'">
+      <strong>{{ address.city + ', ' + address.state }}</strong>
+    </div>
+  </div>
+  <div class="row margin-top-3">
+    <div class="col-sm-6">     
+    </div>
+    <div class="col-sm-6"*ngFor="let address of veteran.addresses  | matchAddressType:'Default'">
+      <strong>{{ address.postalCode }}</strong>
+    </div>    
+  </div>
+  <div class="row margin-bottom-3" style="bottom: 0px;">
+    <div class="col-sm-6"></div>
+    <div class="col-sm-6">      
+      <button (click)="moreDetails()" class="btn btn-primary right">More Details</button>          
+    </div>
+  </div>
+</div>
+<div *ngIf="veteran === undefined" class="alert alert-info  font-size-14 margin-top-15"><i class="fa fa-spin fa-cog fa-2x"></i><span class="font-size-16 margin-left-5 vertical-align-middle">Loading Data</span></div>

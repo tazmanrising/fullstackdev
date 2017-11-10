@@ -1,0 +1,11 @@
+<div class="col-md-9 col-md-offset-2">
+  <h4>Choose Customer Type</h4>
+  <div>
+    <div class='btn margin-right-10' *ngFor='let callerType of callerTypes' 
+            (click)="typeSelect(callerType, $event)" 
+            [class.btn-default]="callerType!==activeType"
+            [class.btn-primary]="callerType===activeType">
+        {{callerType.title}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,87 @@
+﻿<div class="modal-header">
+  <div class="row no-gutters" style="margin-top: 10px; padding-left: 16px;">
+    <div><h4 class="quadrant-title">{{veteran.firstName + ' ' + veteran.lastName}}</h4></div>
+  </div> 
+  <button type="button"  class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+ <div class="modal-body">   
+    <div class="card-deck">
+      <div class="card col-sm-4" style="border:none; column-gap: 0; margin-right:0; margin-left:0" *ngFor="let address of veteran.addresses">
+        <div class="card-block" style="padding:0px;">
+          <span class="card-text">{{ address.addressType }} Address: </span><br />
+          <span class="card-text"> <strong>{{ address.street }}</strong></span><br />
+          <span class="card-text"> <strong>{{ address.city + ', ' + address.state }}</strong></span><br />
+          <span class="card-text"> <strong>{{ address.postalCode }}</strong></span>
+        </div>
+      </div>
+    </div>
+      <br />
+    <div class="row margin-top-3" style="margin:0;">
+        <div class="col-sm-4" >
+          VA Phone: 
+        </div>              
+        <div class="col-sm-4">     
+          Phone:
+        </div>
+      <div class="col-sm-4">       
+      </div>            
+      </div>
+    <div class="row margin-top-3" style="margin:0;">
+      <div class="col-sm-4 " *ngFor="let phone of veteran.phones | matchPhoneType:'Home'">
+        <strong> {{ phone.phoneNumber }} ({{ phone.phoneType}})</strong>
+      </div>
+      <table>       
+        <tr class="col-sm-4" *ngFor="let ph of veteran.phones | removePhoneType:'Home'">
+          <td style="padding-left:8px"><strong> {{ ph.phoneNumber }} ({{ ph.phoneType}})</strong> </td>
+        </tr>
+      </table>
+      <div class="col-sm-4">
+      </div>
+      <div class="col-sm-4">        
+      </div>
+    </div>
+    <div class="row margin-top-3" style="margin:0;">     
+        <div class="col-sm-4">
+          Email:
+        </div>   
+        <div class="col-sm-4">      
+          <ccn-inline-edit [(ngModel)]="phone" label="Add Phone:" [required]="true" type="text"></ccn-inline-edit>
+        </div>       
+        <div class="col-sm-4">
+          <ccn-inline-edit [(ngModel)]="email" label="Add Email:" [required]="true" type="text"></ccn-inline-edit>
+        </div>
+      </div>
+    <div class="row margin-top-3" style="margin:0;">
+      <div class="col-sm-4">
+        <strong *ngIf="veteran">{{ veteran.emailAddress }}</strong>
+      </div>
+      <div class="col-sm-4">        
+      </div>
+      <div class="col-sm-4">        
+      </div>
+    </div>
+    <br />
+      <div class="row margin-top-3" style="margin:0;">
+        <div class="col-sm-8">
+          Subscription Preference:<br />
+          <input type="radio" class="margin-right-10" value="phone" name="subscriptionType" [ngModel]="veteran.subscriptionType">Phone <br />
+          <input type="radio" class="margin-right-10" value="sms" name="subscriptionType" [ngModel]="veteran.subscriptionType">SMS   <br />
+          <input type="radio" class="margin-right-10" value="email" name="subscriptionType" [ngModel]="veteran.subscriptionType">Email  <br />
+        </div>
+        <div class="col-sm-4">
+        </div>
+      </div>
+    
+    </div>
+<div class="modal-footer">
+  <div class="col-sm-4">
+  </div>
+  <div class="col-sm-4">
+  </div>
+  <div class="col-sm-4">
+    <button type="button" class="btn btn-primary margin-right-25" (click)="activeModal.close('Cancel Click')">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="onSave($event)">Save</button>
+  </div>
+</div>

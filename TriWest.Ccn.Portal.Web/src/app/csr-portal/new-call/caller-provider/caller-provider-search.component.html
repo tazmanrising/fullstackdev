@@ -1,0 +1,32 @@
+﻿<div *ngIf="gridData">     
+      <ngx-datatable class="bootstrap veterans"
+                     [rows]="gridData"
+                     [loadingIndicator]="loadingIndicator"
+                     [columnMode]="'force'"
+                     [headerHeight]="50"
+                     [rowHeight]="'auto'"
+                     [reorderable]="reorderable"
+                     [selected]="selected"
+                     [selectionType]="'single'"
+                     (select)='onSelect($event)'
+                     [messages]="{emptyMessage: 'No results match search criteria'}">
+
+        <ngx-datatable-column name="Tax ID" prop="taxId"></ngx-datatable-column>
+        <ngx-datatable-column name="NPI Number" prop="npi"></ngx-datatable-column>
+        <ngx-datatable-column name="Provider Name" prop="providerName"></ngx-datatable-column>
+        <ngx-datatable-column name="Group Name" prop="groupName"></ngx-datatable-column>
+        <ngx-datatable-column name="Address" prop="addressPrimary"></ngx-datatable-column>
+        <ngx-datatable-column name="City" prop="cityPrimary"></ngx-datatable-column>
+        <ngx-datatable-column name="State" prop="statePrimary"></ngx-datatable-column>
+        <ngx-datatable-column name="Zip" prop="postalCodePrimary"></ngx-datatable-column>
+      </ngx-datatable>    
+  </div>
+<div class="row no-gutters margin-bottom-15 pull-right" style="margin-top: 17px;">
+  <button class="btn btn-primary margin-right-15" (click)="clickGeneral()">General Info</button>
+  <button class="btn btn-default margin-right-15"
+          [class.btn-primary]="selected.length > 0"
+          [class.btn-default]="selected.length < 1"
+          [disabled]="selected.length < 1" (click)="clickContinue()">
+    Continue
+  </button>
+</div>

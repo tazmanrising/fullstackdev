@@ -1,0 +1,63 @@
+<div class="panel col-sm-12 ccn-pad-panel-right" style="margin-top:16px; margin-bottom:16px;">
+  <form (ngSubmit)="onSearch(caller)" #providerForm="ngForm">
+    <div class="row no-gutters" style="margin-top: 16px; padding-left: 16px;">
+      <div class=""><h3 class=" quadrant-title ">Validate Provider</h3></div>
+    </div>
+    <div class="row no-gutters" style="margin-top: 16px; padding-left: 20px;">
+      <div class="col-sm-2 margin-right-10">Tax ID&nbsp;<span style="color: red;">*</span></div>
+      <span style="color:red">(or)</span>
+      <div class="col-sm-2 margin-right-10">NPI Number&nbsp;<span style="color: red;">*</span></div>
+      <div class="col-sm-2 margin-right-10">Provider Name</div>
+      <div class="col-sm-2 margin-right-10">Group Name</div>
+    </div>
+    <div class="row no-gutters margin-bottom-15" style="margin-top: 4px; padding-left: 16px;">
+      <div class="col-sm-2 margin-right-30">
+        <input id="taxId" name="taxId" class="form-control"
+               (input)="clearSearch($event)"
+               required pattern="[\d]{9}"
+               maxlength="9" type="text"
+               IeNumeric="true" 
+               [(ngModel)]="caller.taxId" #taxId="ngModel"
+               placeholder="Tax ID">
+
+      </div>
+      <div class="col-sm-2 margin-right-10">
+        <input id="npi" name="npi" class="form-control"
+               (input)="clearSearch($event)"
+               required pattern="\d{10}"
+               maxlength="10" type="text"
+               IeNumeric="true" 
+               [(ngModel)]="caller.npi" #npi="ngModel"
+               placeholder="NPI Number">
+      </div>
+      <div class="col-sm-2 margin-right-10">
+        <input id="providerName"
+               name="providerName"
+               class="form-control"
+               [(ngModel)]="caller.providerName"
+               #provider="ngModel"
+               placeholder="Provider name">
+
+      </div>
+      <div class="col-sm-2 margin-right-10">
+        <input id="groupName" name="groupName" class="form-control"
+               [(ngModel)]="caller.groupName" #groupName="ngModel"
+               placeholder="Group name">
+      </div>
+      <div class="col-sm-2">
+        <button type="submit" class="btn"
+                [class.btn-primary]="!(taxId.invalid && npi.invalid)"
+                [class.btn-default]="(taxId.invalid && npi.invalid)"
+                [disabled]="taxId.invalid && npi.invalid">Search</button>
+      </div>
+    </div>
+    <div *ngIf="(taxId.invalid && npi.invalid) && ( taxId.touched || npi.touched)" 
+         class="row no-gutters  margin-right-10" style="margin-top: 4px; padding-left: 16px;">
+      <div class="col-sm-3 margin-right-10 alert alert-danger color-white">
+        Tax ID or NPI Number is required.
+      </div>
+    </div>
+  </form>
+
+  <caller-provider-search *ngIf="!(taxId.invalid && npi.invalid) && isSearch" [data]="providers"></caller-provider-search>
+</div> 

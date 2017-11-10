@@ -1,0 +1,12 @@
+﻿<div class="row min-height-250" style="padding-right:16px">
+    <div class="col-sm-12">
+        <caller-type (selectCaller)="setCallerType($event)"></caller-type>
+    </div>
+    <div class="col-sm-12">
+        <caller-vamc *ngIf="type==='vamc'"></caller-vamc>
+        <caller-other *ngIf="type==='other'"></caller-other>
+        <verify-veteran-caller *ngIf="type==='veteran'"></verify-veteran-caller>
+        <caller-provider *ngIf="type==='provider'"></caller-provider>
+    </div>
+</div>
+

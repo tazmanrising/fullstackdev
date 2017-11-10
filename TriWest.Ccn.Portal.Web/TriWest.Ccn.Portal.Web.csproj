@@ -1,0 +1,85 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <ApplicationIcon />
+    <OutputTypeEx>library</OutputTypeEx>
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="src\app\core\services\csr\**" />
+    <Compile Remove="src\app\core\services\va\**" />
+    <Compile Remove="src\app\core\services\veteran\**" />
+    <Compile Remove="src\app\models\**" />
+    <Compile Remove="triwest-ccn-portal\**" />
+    <Compile Remove="wwwroot\**" />
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="src\app\core\services\csr\**" />
+    <Content Remove="src\app\core\services\va\**" />
+    <Content Remove="src\app\core\services\veteran\**" />
+    <Content Remove="src\app\models\**" />
+    <Content Remove="triwest-ccn-portal\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="src\app\core\services\csr\**" />
+    <EmbeddedResource Remove="src\app\core\services\va\**" />
+    <EmbeddedResource Remove="src\app\core\services\veteran\**" />
+    <EmbeddedResource Remove="src\app\models\**" />
+    <EmbeddedResource Remove="triwest-ccn-portal\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="src\app\core\services\csr\**" />
+    <None Remove="src\app\core\services\va\**" />
+    <None Remove="src\app\core\services\veteran\**" />
+    <None Remove="src\app\models\**" />
+    <None Remove="triwest-ccn-portal\**" />
+    <None Remove="wwwroot\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="1.0.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="src\assets\images\favicon.114x114.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="src\assets\images\favicon.144x144.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="src\assets\images\favicon.57x57.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="src\assets\images\favicon.72x72.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="src\assets\images\favicon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="src\assets\images\gray.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="src\assets\images\logo-inverse.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="src\assets\images\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="src\assets\images\TriWest-Healthcare-Alliance-Logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="src\favicon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  
+
+</Project>

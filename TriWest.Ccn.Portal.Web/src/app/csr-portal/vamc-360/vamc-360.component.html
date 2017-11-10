@@ -1,0 +1,62 @@
+<div class="row no-gutters">
+  <div class="col-sm-12 ccn-pad-panel-right">
+    <section class="panel col-sm-12 no-gutters ccn-pad-panel-left" style="height: 28px;">Search</section>
+  </div>
+</div>
+<view-label type="VA360" [value]=""></view-label>
+<div class="row no-gutters">
+  <div class="col-sm-6 ccn-pad-panel-right">
+    <section class="panel col-sm-12" style="height: 320px;">
+      <!-- ngbTableset component, standard implementation.-->
+      <ngb-tabset class="nav-tabs-horizontal">
+        <ngb-tab title="Tab One">
+          <ng-template ngbTabContent>
+            Tab One Contents
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Tab Two">
+          <ng-template ngbTabContent>
+            Tab Two Contents
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Tab Three">
+          <ng-template ngbTabContent>
+            Tab Three Contents
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Tab Four">
+          <ng-template ngbTabContent>
+            Tab Four Contents
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Tab Five">
+          <ng-template ngbTabContent>
+            Tab Five Contents
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Tab Six">
+          <ng-template ngbTabContent>
+            Tab Six Contents
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </section>
+  </div>
+  <div class="col-sm-6 ccn-pad-panel-right">
+    <!-- inline height style temporary for presentation. Remove when components added. -->
+    <section class="panel col-sm-12" style="height: 320px;">
+      Notes?
+      {{ id }}
+    </section>
+  </div>
+</div>
+<div class="row no-gutters">
+  <div class="col-sm-6 ccn-pad-panel-right">
+    <section class="panel col-sm-12" style="height: 320px;">
+      <vamc-360-auths [vamcId]="id"></vamc-360-auths>
+    </section>
+  </div>
+  <div class="col-sm-6 ccn-pad-panel-right">
+    <section class="panel col-sm-12" style="height: 320px;">Claims </section>  </div>
+</div>
+<div style="clear: both;">&nbsp;</div>

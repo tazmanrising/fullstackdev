@@ -1,0 +1,210 @@
+<div class="row col-sm-12">
+  <div class="col-sm-2"><strong> Claim # </strong></div>
+  <div class="col-sm-2"><strong> Veteran Last Name </strong></div>
+  <div class="col-sm-2"><strong> Veteran First Name </strong></div>
+  <div class="col-sm-2"><strong> Veteran Number </strong></div>
+  <div class="col-sm-2"><strong> SSN (Last 4) </strong></div>
+  <div class="col-sm-2"><strong> Date Of Birth </strong></div>
+</div>
+
+<div class="row col-sm-12">
+  <div class="col-sm-2">
+    <input type="text"
+           [(ngModel)]="parameters.claimsNumber"
+           ng-model-options="{updateOn: keyup}"
+           (blur)="checkValid()"
+           (keyup)="checkValid()"
+           class="form-control claims-number"
+           id=">Claims Number"
+           name=">Claims Number" />
+  </div>
+  <div class="col-sm-2">
+    <input type="text"
+           class="form-control"
+           id="VeteranLastName"
+           ng-model-options="{updateOn: keyup}"
+           [(ngModel)]="parameters.veteranLastName"
+           (blur)="checkValid()"
+           (keyup)="checkValid()"
+           name="veteranLastName" />
+  </div>
+  <div class="col-sm-2">
+    <input type="text"
+           class="form-control"
+           id="VeteranFirstName"
+           [(ngModel)]="parameters.veteranFirstName"
+           (blur)="checkValid()"
+           (keyup)="checkValid()"
+           ng-model-options="{updateOn: keyup}"
+           name="veteranFirstName" />
+  </div>
+  <div class="col-sm-2">
+    <input type="number"
+           IeNumeric="true"
+           NoDot="true"
+           pattern="\d{4}"
+           class="form-control veteran-number"
+           id="Veteran Number"
+           name="veteranNumber"
+           maxLength="10"
+           ng-model-options="{updateOn: keyup}"
+           [(ngModel)]="parameters.veteranNumber"
+           (blur)="checkValid()"
+           (keyup)="checkValid()" />
+  </div>
+
+  <div class="col-sm-1">
+    <input type="number"
+           IeNumeric="true"
+           pattern="\d{4}"
+           class="form-control ssn-number"
+           id="SSN Number"
+           NoDot="true"
+           name="SSN Number"
+           ng-model-options="{updateOn: keyup}"
+           [(ngModel)]="parameters.ssnLast4"
+           maxLength="4"
+           [ngbTooltip]=""
+           #ssnTooltip="ngbTooltip"
+           triggers="manual"
+           [class.border-error]="ssnHasError"
+           style="width: 170%"
+           (blur)="checkValid()"
+           (keyup)="checkValid()" />
+  </div>
+
+  <div class="col-sm-2">
+    <input id="dateOfBirth"
+           class="form-control left"
+           placeholder="mm/dd/yyyy"
+           name="dateOfBirth"
+           [minDate]="minDate"
+           [maxDate]="maxDate"
+           ngbDatepicker
+           #d="ngbDatepicker"
+           #dateOfBirth="ngModel"
+           required
+           [(ngModel)]="parameters.dateOfBirth"
+           style="width: 110%; margin-left:25px;"
+           ng-model-options="{updateOn: keyup}"
+           (keyup)="checkValid()"
+           (ngModelChange)="checkValid()" />
+
+  </div>
+  <div class="col-sm-1">
+    <button id="datePickerPopup" class="left btn btn-primary" (click)="d.toggle();" type="button" style="height: 36px;">
+      <i class="fa fa-calendar"></i>
+    </button>
+  </div>
+
+</div>
+<div class="clearfix">&nbsp;</div>
+<div class="clearfix">&nbsp;</div>
+<div class="row col-sm-12">
+  <div class="col-sm-2"><strong> Provider Tax ID</strong></div>
+  <div class="col-sm-2"><strong> Provider Name</strong></div>
+  <div class="col-sm-2"><strong> NPI </strong></div>
+  <div class="col-sm-2"><strong> City </strong></div>
+  <div class="col-sm-2"><strong> State</strong></div>
+  <div class="col-sm-2"><strong> Zip </strong></div>
+</div>
+
+<div class="row col-sm-12">
+  <div class="col-sm-2">
+    <input type="number"
+           IeNumeric="true"
+           pattern="\d{4}"
+           class="form-control"
+           maxlength="9"
+           RequireDigitCount
+           RequireMinDigits="4"
+           RequireMaxDigits="9"
+           minLength="4"
+           NoDot="true"
+           id="ProviderTaxId"
+           name="providertaxId"
+           ng-model-options="{updateOn: 'keyup'}"
+           [(ngModel)]="parameters.providerTaxId"
+           [ngbTooltip]=""
+           #providerTaxIdTooltip="ngbTooltip"
+           triggers="manual"
+           [class.border-error]="providerTaxIdHasError"
+           (blur)="checkValid()"
+           (keyup)="checkValid()" />
+  </div>
+
+  <div class="col-sm-2">
+    <input type="text"
+           class="form-control"
+           id="ProviderName"
+           name="providerName"
+           [(ngModel)]="parameters.providerName"
+           ng-model-options="{updateOn: keyup}"
+           (blur)="checkValid()"
+           (keyup)="checkValid()" />
+  </div>
+
+  <div class="col-sm-2">
+    <input required
+           type="text"
+           class="form-control"
+           id="Npi"
+           name="npi"
+           minlength="4"
+           maxlength="10"
+           NoDot="true"
+           IeNumeric="true"
+           [(ngModel)]="parameters.npi"
+           ng-model-options="{updateOn: keyup, blur}"
+           [ngbTooltip]=""
+           #npiTooltip="ngbTooltip"
+           triggers="manual"
+           [class.border-error]="npiHasError"
+           (blur)="checkValid()"
+           (keyup)="checkValid()" />
+
+  </div>
+
+  <div class="col-sm-2">
+    <input type="text"
+           class="form-control"
+           id="VetCity"
+           name="vetCity"
+           ng-model-options="{updateOn: keyup}"
+           [(ngModel)]="parameters.city"
+           (blur)="checkValid()"
+           (keypress)="checkValid()" />
+  </div>
+
+  <div class="col-sm-2">
+    <ng-select type="text"
+               id="VetState"
+               name="vetState"
+               [items]="states"
+               [(ngModel)]="parameters.state"
+               placeholder="Select State"
+               style="width: 0%; "
+               (blur)="checkValid()"
+               (keyup)="checkValid()"
+               (removed)="stateRemoved()"
+               (selected)="selected()">
+    </ng-select>
+  </div>
+
+  <div class="col-sm-2">
+    <input class="form-control"
+           id="VetZip"
+           name="vetZip"
+           required type="number"
+           NoDot="true"
+           pattern="\d{4}"
+           IeNumeric="true"
+           ng-model-options="{updateOn: keyup}"
+           [(ngModel)]="parameters.postalCode"
+           style="width: 65%"
+           (blur)="checkValid()"
+           (keyup)="checkValid()"
+           (selected)="selected()" />
+  </div>
+
+</div>

@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="ccn-pad-panel-right">
+    <section class="panel col-sm-12" style="height: auto; width: 100%;">
+      <ngb-tabset class="nav-tabs-horizontal">
+        <ngb-tab id="veteranDetailsTab" title="Notifications">
+          <ng-template ngbTabContent>
+            <div class="panel panel-body">
+
+              <ngx-datatable class="bootstrap"
+                             [rows]="notificationDatas"
+                             [loadingIndicator]="loadingIndicator"
+                             [columnMode]="'standard'"
+                             [headerHeight]="50"
+                             [rowHeight]="'auto'"
+                             [reorderable]="reorderable">
+
+                <ngx-datatable-column name="date" [width]="175">
+                  <ng-template ngx-datatable-header-template let-sort="sortFn">
+                    <span (click)="sort()"><b>Date</b></span>
+                  </ng-template>
+                  <ng-template ngx-datatable-cell-template let-row="row">
+                    <a href="#" (click)="clickDetail($event, value)">{{row.date | date: 'yMdjm'}}</a>
+                  </ng-template>
+                </ngx-datatable-column>
+
+
+                <ngx-datatable-column name="category" [width]="200">
+                  <ng-template ngx-datatable-header-template let-sort="sortFn">
+                    <span (click)="sort()"><b>Category</b></span>
+                  </ng-template>
+                  <ng-template ngx-datatable-cell-template let-row="row">
+                    <a href="#" (click)="clickDetail($event, value)">{{row.category}}</a>
+                  </ng-template>
+                </ngx-datatable-column>
+
+                <ngx-datatable-column name="notes" [width]="800">
+                  <ng-template ngx-datatable-header-template let-sort="sortFn">
+                    <span (click)="sort()"><b>Notification</b></span>
+                  </ng-template>
+                  <ng-template ngx-datatable-cell-template let-row="row">
+                    <a placement="bottom" class="notification" ngbTooltip="{{row.notes}}" href="#" (click)="clickDetail($event, value)">{{row.notes | truncate : 150 }}</a>
+                  </ng-template>
+                </ngx-datatable-column>
+
+              </ngx-datatable>
+              <div class="row margin-top-15" style="bottom: 0px;" _ngcontent-c8="">
+                <div class="col-sm-10" _ngcontent-c8=""></div>
+                <div class="col-sm-2" _ngcontent-c8="">
+                  <button class="btn btn-primary" (click)="moreDetails()">All Notes</button>
+                </div>
+              </div>
+              <br />
+            </div>
+
+          </ng-template>
+        </ngb-tab>
+
+        <ngb-tab id="accountNotesTab" title="Account Notes">
+          <ng-template ngbTabContent>
+            <div>Account Notes go here</div>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </section>
+</div>
+</div>

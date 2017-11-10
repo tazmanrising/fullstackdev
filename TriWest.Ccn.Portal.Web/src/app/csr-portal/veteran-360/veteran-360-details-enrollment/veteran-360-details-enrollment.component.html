@@ -1,0 +1,45 @@
+<div class="margin-left-10 margin-right-10 max-height-350">    
+    <div class="row col-sm-12 margin-top-10" *ngIf="distanceProgram">
+        <div class="col-sm-3"><span class="label">Program</span></div>
+        <div class="col-sm-4">{{distanceProgram.programName}}</div>
+        <div class="col-sm-2"><span class="label">Enrolled</span></div>
+        <div class="col-sm-3">{{distanceProgram.enrollDate | date: 'M/d/yyyy' }}</div>
+    </div>
+    <div class="row col-sm-12" *ngIf="waitTimeProgram">
+        <div class="col-sm-3"><span class="label">Program</span></div>
+        <div class="col-sm-4">{{waitTimeProgram.programName}}</div>
+        <div class="col-sm-2"><span class="label">Enrolled</span></div>
+        <div class="col-sm-3">{{waitTimeProgram.enrollDate | date: 'M/d/yyyy' }}</div>
+    </div>
+    <hr class="small" />
+    <div>
+        <div class="row col-sm-12">
+            <div class="col-md-6" *ngFor="let e of enrollments | slice:0:2">
+                <table>
+                    <tr>
+                        <td class="label">Program</td>
+                        <td>{{e.programName}}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Case Manager</td>
+                        <td>{{e.programCareManager}}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Case Manager ID</td>
+                        <td>{{e.programCareManagerId}}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Enrolled</td>
+                        <td>{{e.enrollDate | date: 'M/d/yyyy' }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <hr class="small" />
+    <div class="row col-sm-12" *ngIf="pcp">
+        <div class="col-sm-4"><span class="label">Primary Care Provider</span><br /><span class="label">Updated</span></div>
+        <div class="col-sm-8">{{pcp.providerName}}<br />{{pcpUpdate | date: 'M/d/yyyy' }}</div>
+    </div>
+    <button *ngIf="hasInfo" class="btn btn-primary right btn-history" (click)="seeHistory()">All Enrollments</button>
+</div>

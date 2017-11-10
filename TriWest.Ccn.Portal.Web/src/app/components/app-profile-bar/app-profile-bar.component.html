@@ -1,0 +1,53 @@
+<div class="menu" *ngIf="loggedIn" >
+  <div class="menu-user-block right col-sm-3">
+      <div class="left"  *ngIf="homeUrl === 'vet'">
+        <button class="btn btn-primary vet-chat"><strong>CHAT WITH US</strong></button>
+      </div>
+      <div ngbDropdown class="dropdown right">
+        <div class="dropdown upb-menu-right" id="dropdownBasic1" ngbDropdownToggle>
+             <span class="profile-bar-user">{{userName}}</span>
+              &nbsp;<i id="user-glyph" class="fa fa-user-circle fa-3x"></i></div>
+        <ul class="dropdown-menu">
+          <li>
+            <a id="myAccount" href="#" class="dropdown-item" (click)="showPreference()">My Account</a>
+          </li>
+          <li>
+            <a id="logout" href="{{logoutUrl}}" class="dropdown-item">Logout</a>
+          </li>
+        </ul>
+    </div>
+  </div>
+
+  <div class="menu-info-block col-sm-6">
+    <div class="left">
+      <div class="header-buttons">
+        <div class="dropdown" *ngIf="homeUrl === 'vet'">
+          <a routerLink='{{homeUrl}}'  class=" dropdown-inline-button" aria-expanded="false">
+            <div class="hidden-lg-down">Home</div>
+          </a>
+          <a routerLink='vet/provider-directory' class=" dropdown-inline-button" aria-expanded="false">
+            <div class="hidden-lg-down">Provider Directory</div>
+          </a>
+          <a routerLink='vet/referrals' class=" dropdown-inline-button" aria-expanded="false">
+            <div class="hidden-lg-down">Referrals</div>
+          </a>
+          <a routerLink='vet/appointments' class=" dropdown-inline-button" aria-expanded="false">
+            <div class="hidden-lg-down">Appointments</div>
+          </a>
+          <a routerLink='vet/claims' class=" dropdown-inline-button" aria-expanded="false">
+            <div class="hidden-lg-down">CCN Claims</div>
+          </a>
+        </div>
+        <div class="dropdown" *ngIf="homeUrl === 'crm'">
+          <a routerLink='{{homeUrl}}' class=" dropdown-inline-button" aria-expanded="false">
+            <div class="hidden-lg-down">Home</div>
+          </a>
+          <a href="http://triwest.oxd1.com/Main/Home.aspx" class=" dropdown-inline-button" aria-expanded="false">
+            <div class="hidden-lg-down">Training</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!loggedIn" class="text-center text-middle"><marquee scrolldelay="5" scrollamount="23"><blink><h1 class="color-white margin-top-10">This page is temporary until authentication services are available.</h1></blink></marquee></div>

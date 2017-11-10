@@ -1,0 +1,13 @@
+<div class="col-xs-12 no-padding">
+  <div class="panel panel-body">
+    <ngb-carousel >
+      <ng-template ngbSlide *ngFor="let banner of bannerDatas">
+        <img src="{{banner.source}}" alt= "{{banner.alternate}}">
+        <div class="carousel-caption">
+          <h3>{{banner.header}}</h3>
+          <div [innerHTML] ="banner.message"></div>
+        </div>
+      </ng-template>
+     </ngb-carousel>
+  </div>
+</div>

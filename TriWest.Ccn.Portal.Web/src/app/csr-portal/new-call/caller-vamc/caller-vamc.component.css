@@ -1,0 +1,15 @@
+﻿form .ui-select-container {
+  width: 100% !important;
+}
+form .ui-select-toggle {
+  height: 35px !important;
+  padding-top: 4px !important;
+}
+form .btn-secondary.btn {
+    background-color: white !important;
+    color: black !important;
+    border-color: rgba(0,0,0,.150827) !important;
+}
+.required{
+    color: red;
+}

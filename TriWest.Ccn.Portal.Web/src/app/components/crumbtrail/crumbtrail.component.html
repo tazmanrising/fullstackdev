@@ -1,0 +1,9 @@
+<div class="panel row  no-gutters">
+  <div class="col-sm-12">
+    <ol class="breadcrumb">
+      <li class='breadcrumb-item' *ngFor="let entry of entries">
+        <a routerLink="{{entry.route}}">{{entry.label}}</a>
+      </li>
+    </ol>
+  </div>
+</div>

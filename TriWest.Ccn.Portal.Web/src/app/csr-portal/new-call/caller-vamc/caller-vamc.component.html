@@ -1,0 +1,88 @@
+﻿<div class="panel col-sm-12 ccn-pad-panel-right" 
+     style="margin-top:16px; margin-bottom:18px; padding-bottom:3px;">
+  <form #vamcForm="ngForm" novalidate>
+    <div class="row no-gutters" style="margin-top: 16px; padding-left: 16px;">
+      <div class=""><h3 class=" quadrant-title ">Validate VAMC</h3></div>
+    </div>
+    <div class="row no-gutters" style="margin-top: 16px; padding-left: 20px;">
+      <div class="col-sm-2 margin-right-10">Last Name&nbsp;<span style="color: red;">*</span></div>
+      <div class="col-sm-2 margin-right-10">First Name&nbsp;<span style="color: red;">*</span></div>
+      <div class="col-sm-3 margin-right-10">VAMC&nbsp;<span style="color: red;">*</span></div>
+      <div class="col-sm-2 margin-right-10">Station ID&nbsp;<span style="color: red;">*</span></div>
+      <div class="col-sm-2 margin-right-10">Email&nbsp;<span style="color: red;">*</span></div>
+    </div>
+
+    <div class="row no-gutters margin-bottom-15" style="margin-top: 4px; padding-left: 16px;">
+      <div class="col-sm-2 margin-right-10">
+        <input type="text" id="lastName" name="lastName"
+               #lastName="ngModel" placeholder="Last Name" required
+               class="form-control" [(ngModel)]="caller.lastName"
+               (input)="validateForm(vamcForm.valid)"
+               [class.has-error]="lastName.invalid && lastName.touched" />
+        <div class="alert alert-danger" id="lastNameError"
+             *ngIf="lastName.invalid && lastName.touched">
+          Last Name is required field
+        </div>
+      </div>
+      <div class="col-sm-2 margin-right-10">
+        <input type="text" id="firstName" name="firstName"
+               #firstName="ngModel" placeholder="First Name" required
+               class="form-control" [(ngModel)]="caller.firstName"
+               (input)="validateForm(vamcForm.valid)"
+               [class.has-error]="firstName.invalid && firstName.touched" />
+        <div class="alert alert-danger"
+             *ngIf="firstName.invalid && firstName.touched">
+          First Name is required field
+        </div>
+      </div>
+      <div class="col-sm-3 margin-right-10">
+        <ng-select type="text" id="vamc" name="vamc"
+                   [items]="vamcSelects"
+                   [(ngModel)]="vamcid"
+                   (selected)="selected($event)"
+                   #vamc="ngModel" required
+                   placeholder="Select VAMC"
+                   [class.has-error]="vamc.invalid  && stationId.touched">
+        </ng-select>
+        <div class="alert alert-danger" id="vamcError"
+             *ngIf="vamc.invalid  && vamctouched">
+          VAMC is required field
+        </div>
+      </div>
+      <div class="col-sm-2 margin-right-10">
+        <input id="stationId" name="stationId"
+               #stationId="ngModel" placeholder="Station ID"
+               required maxlength="5"  minlength="5"
+               class="form-control" [(ngModel)]="caller.stationId"
+               (input)="validateForm(vamcForm.valid)"
+               (focus)="blurVAMC($event)"
+               [class.has-error]="stationId.invalid && stationId.touched" />
+        <div class="alert alert-danger" id="stationIdError"
+             *ngIf="stationId.invalid && stationId.touched">
+          Station ID is required field
+        </div>
+      </div>
+      <div class="col-sm-2 margin-right-10">
+        <input type="email" id="email" name="email"
+               #email="ngModel" placeholder="Email" required
+               pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$"
+               class="form-control" [(ngModel)]="caller.email"
+               (input)="validateForm(vamcForm.valid)"
+               [class.has-error]="email.invalid && email.touched" />
+        <div class="alert alert-danger" id="emailError"
+             *ngIf="email.invalid && email.touched">
+          Email is invalid and a required field
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="row no-gutters margin-bottom-15 pull-right">
+  <button class="btn btn-primary margin-right-15" (click)="generalInfo($event)">General Info</button>
+  <button class="btn btn-primary margin-right-15"
+          [class.btn-default]="!vamcForm.valid"
+          [class.btn-primary]="vamcForm.valid"
+          [disabled]="!vamcForm.valid" (click)="continue($event)">
+    Continue
+  </button>
+</div>

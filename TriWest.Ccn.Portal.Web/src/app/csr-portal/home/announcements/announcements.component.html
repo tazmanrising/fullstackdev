@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+  <div class="panel-body csr-home-notifications" style="">
+    <h4>Notifications</h4>
+    <div name="accouncements" *ngFor="let announcement of announcements">
+      <div class="panel panel-default" id="announcementItem" style="margin-bottom:20px;">
+        <div class="row panel-body">
+          <div class="col-sm-2 text-center text-middle" style="height:100%;">
+            <span>
+              <i class="fa fa-4x fa-bullhorn" *ngIf="announcement.hub == 'Corporate'"></i>
+              <i class="fa fa-4x fa-user" *ngIf="announcement.hub == user.hub"></i>
+            </span>
+          </div>
+          <div class="col-sm-10">
+            <div class="row">
+              <div class="col-sm-9">
+                <h5 name="title"><b>{{announcement.title}}</b></h5>
+              </div>
+              <div class="col-sm-2" id="creationDate">{{announcement.createdOn | formatDate | date:'shortDate'}}</div>
+            </div>
+            <div class="col-sm-12" id="content"[innerHTML]="announcement.content"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

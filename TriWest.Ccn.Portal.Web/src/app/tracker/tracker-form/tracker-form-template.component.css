@@ -1,0 +1,55 @@
+
+.tracker-sizing {
+  width: 355px;
+  padding-right: 0;
+  padding-left: 25px;
+}
+
+
+.tracker-font {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.session-tracker-header {
+  cursor: pointer;
+}
+
+.margin-bottom {
+  margin-bottom: 5px;
+}
+
+.spacing-fixer {
+  margin-bottom: 0;
+}
+
+.line-fixer {
+  line-height: normal;
+}
+
+.label-bold {
+  font-weight: bold;
+}
+
+.label-region {
+  height: 35px;
+  width: 350px;
+}
+
+.drop-down {
+  height: 20px;
+  width: 150px;
+}
+
+.end-session {
+  font-family: Arial;
+  font-size: 20px;
+  color: #FF7F00;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.invalid {
+  cursor: not-allowed;
+}

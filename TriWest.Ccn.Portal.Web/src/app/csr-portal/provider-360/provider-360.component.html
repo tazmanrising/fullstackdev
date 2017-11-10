@@ -1,0 +1,94 @@
+<portal-search class="row no-gutters portal-search-custom" [defaultsearch]="'provider'"></portal-search>
+<view-label type="PROVIDER360" [value]="providerInfo ? providerInfo.providerName : ''"></view-label>
+<div class="row no-gutters">
+  <div class="col-sm-6 ccn-pad-panel-right">
+    <section class="panel col-sm-12" style="height: 320px;">
+      <!-- ngbTableset component, standard implementation.-->
+      <ngb-tabset class="nav-tabs-horizontal">
+        <ngb-tab title="Provider Details">
+          <ng-template ngbTabContent>
+            <div *ngIf="errorMessage !== ''">
+              <provider-individual-details [providerInfo]="providerInfo" [serviceErrorMessage]="errorMessage"> </provider-individual-details>
+            </div>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Contact Info">
+          <ng-template ngbTabContent>
+            &lt;sub-component-selector&gt; 2 &lt;/sub-component-selector&gt;
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Office Info">
+          <ng-template ngbTabContent>
+            <provider-office-info [providerInfo]="providerInfo" [serviceErrorMessage]="errorMessage"></provider-office-info>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Grievances">
+          <ng-template ngbTabContent>
+            &lt;sub-component-selector&gt; 4 &lt;/sub-component-selector&gt;
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Credential">
+          <ng-template ngbTabContent>
+            &lt;sub-component-selector&gt; 5 &lt;/sub-component-selector&gt;
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Group">
+          <ng-template ngbTabContent>
+            &lt;sub-component-selector&gt; 6 &lt;/sub-component-selector&gt;
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </section>
+  </div>
+  <div class="col-sm-6 ccn-pad-panel-right">
+    <!-- inline height style temporary for presentation. Remove when components added. -->
+    <section class="panel col-sm-12" style="height: 320px;">
+      <h4 class="quadrant-title left" _ngcontent-c4="">Notes</h4>
+    </section>
+  </div>
+</div>
+<div class="row no-gutters">
+  <div class="col-sm-6 ccn-pad-panel-right">
+    <section class="panel col-sm-12" style="height: 320px;">
+      <auth-provider [providerId]="id"></auth-provider>
+    </section>
+  </div>
+  <div class="col-sm-6 ccn-pad-panel-right">
+    <!-- inline height style temporary for presentation. Remove when components added. -->
+    <section class="panel col-sm-12" style="height: 320px;">
+      <ngb-tabset class="nav-tabs-horizontal">
+        <ngb-tab>
+          <ng-template ngbTabTitle>
+            <!--<div class="col-sm-4 text-bottom">-->
+              <h5 style="margin-bottom:0px">Medical Claims</h5>
+            <!--</div>-->
+          </ng-template>
+          <ng-template ngbTabContent>
+            <medical-claims [providerId]="id"></medical-claims>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab>
+          <ng-template ngbTabTitle>
+            <!--<div class="col-sm-4 text-bottom">-->
+              <h5 style="margin-bottom:0px" >Dental Claims</h5>
+            <!--</div>-->
+          </ng-template>
+          <ng-template ngbTabContent>
+            <!--Dental Claims component goes here-->
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab>
+          <ng-template ngbTabTitle>
+            <!--<div class="col-sm-4 text-bottom">-->
+            <h5 style="margin-bottom:0px">Prescription Claims</h5>
+            <!--</div>-->
+          </ng-template>
+          <ng-template ngbTabContent>
+            <!--Prescription Claims component goes here-->
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </section>
+  </div>
+</div>
+<div style="clear: both;">&nbsp;</div>

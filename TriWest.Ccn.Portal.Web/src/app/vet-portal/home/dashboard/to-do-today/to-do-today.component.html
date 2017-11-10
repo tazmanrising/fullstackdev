@@ -1,0 +1,129 @@
+<div class="row">
+  <div class="col-sm-6 ccn-pad-panel-right col-xs-12">
+    <section class="panel col-sm-12" style="height: auto; width: 100%;">
+      <ngb-tabset class="nav-tabs-horizontal">
+        <ngb-tab title="What do you want to do today?">
+          <ng-template ngbTabContent>
+
+            <ngb-accordion [closeOthers]="true" activeIds="1" #acc="ngbAccordion" (panelChange)="activate($event)">
+
+              <ngb-panel id="1">
+                <ng-template ngbPanelTitle>
+                  <div class="d-flex" (click)="clickAccordion($event)">
+                    Discover all the CCN program options you may be now eligible for now.
+                    <div class="ml-auto">
+                      <span *ngIf="!panelList[0].nextState"><i class="fa fa-plus"></i></span>
+                      <span *ngIf="panelList[0].nextState"><i class="fa fa-minus"></i></span>
+                    </div>
+
+                  </div>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                  <div>Did you know that you may now be eligible for the following types of coverage:</div>
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                      <ul class="list-inline">
+                        <li>
+                          <a routerLink='/program-benefits-medical/'><img src="assets/images/Vet360-Icon-Medical.png" />Medical</a>
+                        </li>
+                        <li>
+                          <a routerLink='/program-benefits-dental/'><img src="assets/images/Vet360-Icon-Dental.png" />Dental</a>
+                        </li>
+                        <li>
+                          <a routerLink='/program-benefits-medications/'><img src="assets/images/Vet360-Icon-Medication.png" />Medications</a>
+                        </li>
+                        <li>
+                          <a routerLink='/program-benefits-in-home-healthcare/'><img src="assets/images/Vet360-Icon-In-Home-Healthcare.png" />Medical Management</a>
+                        </li>
+                      </ul>
+                                        
+                    </div>
+                   
+                      
+                    </div>
+               
+                 
+
+
+                  <p>Check out your <a href='/program-eligibility/'> CCN Program Eligibility</a> to find out what programs you are currently enrolled in and what other options you may be eligible for. If you need assistance, use the Chat With Us button above or call  <a href="#">(800) 000 - 0000</a>. </p>
+                </ng-template>
+              </ngb-panel>
+
+
+
+              <ngb-panel id="2">
+                <ng-template ngbPanelTitle>
+                  <div class="d-flex" (click)="clickAccordion($event)">
+                    Check on the status of your prior authorizations or referrals.
+                    <div class="ml-auto">
+                      <span *ngIf="!panelList[1].nextState"><i class="fa fa-plus"></i></span>
+                      <span *ngIf="panelList[1].nextState"><i class="fa fa-minus"></i></span>
+                    </div>
+                  </div>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                  <p>When the V.A. approves a CCN<a routerLink='/authorizations/'> prior authorization</a> for a <a routerLink='/referrals/'>referral</a>, track each of your authorizations and referrals easily. </p>
+                </ng-template>
+              </ngb-panel>
+
+
+
+              <ngb-panel id="3">
+                <ng-template ngbPanelTitle>
+                  <div class="d-flex" (click)="clickAccordion($event)">
+                    See when your next appointments are scheduled.
+                    <div class="ml-auto">
+                      <span *ngIf="!panelList[2].nextState"><i class="fa fa-plus"></i></span>
+                      <span *ngIf="panelList[2].nextState"><i class="fa fa-minus"></i></span>
+                    </div>
+                  </div>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                  <p>With your busy schedule, it can be hectic trying to plan out your medical appointments any given week, let alone remember them all. Now, CCN offers a convenient, easy way to <a routerLink='/appointments-schedule-online/'> schedule your next CCN Appointment online</a>. You an even view your <a routerLink='/appointments/'> CCN Appointments</a> 24 hours a day, 7 days a week. </p>
+                </ng-template>
+              </ngb-panel>
+
+
+              <ngb-panel id="4">
+                <ng-template ngbPanelTitle>
+                  <div class="d-flex" (click)="clickAccordion($event)">
+                    Get an update on your medical, dental & prescription claims payments.
+                    <div class="ml-auto ">
+                      <span *ngIf="!panelList[3].nextState"><i class="fa fa-plus"></i></span>
+                      <span *ngIf="panelList[3].nextState"><i class="fa fa-minus"></i></span>
+                    </div>
+                  </div>
+
+                </ng-template>
+                <ng-template ngbPanelContent>
+                  <p>Access your personalized <a routerLink='/claims/'>CCN Claims</a> information, including the most up-to-date information about your <a routerLink='/claims-medical/'>medical</a>, <a routerLink='/claims-dental/'>dental</a> and <a routerLink='/claims-medications/'>medication</a> claims. You’ll usually be able to see a claim within 24 hours after CCN processes it.</p>
+                </ng-template>
+              </ngb-panel>
+
+
+
+              <ngb-panel id="5">
+                <ng-template ngbPanelTitle>
+                  <div class="d-flex" (click)="clickAccordion($event)">
+                    Submit an online Release of Information for a spouse or care-giver.
+                    <div class="ml-auto">
+                      <span *ngIf="!panelList[4].nextState"><i class="fa fa-plus"></i></span>
+                      <span *ngIf="panelList[4].nextState"><i class="fa fa-minus"></i></span>
+                    </div>
+                  </div>
+
+                </ng-template>
+                <ng-template ngbPanelContent>
+                  <p>Now you can complete and send a signed Consent for Release online, so sharing details about your care is easier for your spouse, caregivers, and providers. Quickly and easily submit an online <a routerLink='/form-10-5345/'> VA Form 10-5345 Request For and Authorization To Release Medical Records Or Health Information</a>.</p>
+                </ng-template>
+              </ngb-panel>
+
+            </ngb-accordion>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </section>
+  </div>
+</div>
+
+

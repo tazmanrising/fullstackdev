@@ -1,0 +1,12 @@
+﻿<div>
+  <div *ngIf="editing" class="col-sm-4">
+    <input #inlineEditControl style="border: 1px solid #ccc;  border-radius: 2px;  padding: 6px 10px;" [required]="required" (blur)="onBlur($event)" [name]="value" [(ngModel)]="value" [type]="type" [placeholder]="label" />
+  </div>
+  <div *ngIf="!editing">
+    <div title="Click to edit" (click)="edit(value)" (focus)="edit(value);" tabindex="0"
+         style="text-decoration: none; border-bottom: #A8B9CE dashed 1px; cursor: pointer; text-align: left; padding: .5em 0; color: #444 !important; width: 100px;">
+      {{label}}
+      {{value}}
+    </div>
+  </div>
+</div>

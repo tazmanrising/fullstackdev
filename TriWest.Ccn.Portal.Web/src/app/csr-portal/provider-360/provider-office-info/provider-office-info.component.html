@@ -1,0 +1,38 @@
+<div *ngIf="providerInfo !== undefined" class="margin-left-15">
+  <div class="row margin-top-15">
+    <div class="col-sm-12">
+      Primary Email: <strong *ngIf="providerInfo">{{ providerInfo.emailPrimary }}</strong>
+    </div>
+  </div>
+  <div class="row margin-top-5">
+    <div class="col-sm-12">
+      Billing Email: <strong *ngIf="providerInfo">{{ providerInfo.emailBilling }}</strong>
+    </div>
+  </div>
+  <div class="row margin-top-20">
+    <div class="col-sm-12">
+      Office Hours:
+    </div>
+  </div>
+  <div class="row margin-top-5">
+    <div class="col-sm-12">
+      <strong class="margin-left-15" *ngIf="providerInfo">{{ providerInfo.hoursOfOperation }}</strong><br />
+    </div>
+  </div>
+  <div class="row margin-top-5">
+    <div class="col-sm-12">
+      &nbsp;
+      </div>
+    </div>
+      <div class="row margin-top-5">
+        <div class="col-sm-12">
+          Same-Day Appointing: <strong *ngIf="providerInfo">{{ providerInfo.sameDayAppointing }}</strong>
+        </div>
+      </div>
+      <div class="row margin-top-5">
+        <div class="col-sm-12">
+          Urgent Care: <strong *ngIf="providerInfo">{{ providerInfo.urgentCare }}</strong>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="providerInfo === undefined" class="alert alert-info  font-size-14 margin-top-15"><i class="fa fa-spin fa-cog fa-2x"></i><span class="font-size-16 margin-left-5 vertical-align-middle">Loading Data</span></div>

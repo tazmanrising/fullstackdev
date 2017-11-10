@@ -1,0 +1,165 @@
+<div class="row col-sm-12">
+  <div class="col-sm-3 vet-search-margin-right"><b>NPI Number</b></div>
+  <div class="col-sm-2 vet-search-margin-right"><b>Provider Tax ID Number</b></div>
+  <div class="col-sm-2 vet-search-margin-right"><b>Place of Service</b></div>
+  <div class="col-sm-2 vet-search-margin-right"><b>Provider Name</b></div>
+  <div class="col-sm-2 vet-search-margin-right"><b>Group</b></div>
+  <div class="col-sm-3 vet-search-margin-right"><b>Specialty</b></div>
+</div>
+<div class="row col-sm-12">
+  <div class="col-sm-3 vet-search-margin-right">
+    <input required
+           type="number"
+           class="form-control"
+           id="Npi"
+           name="npi"
+           [(ngModel)]="parameters.npi"
+           minlength="4"
+           maxlength="10"
+           IeNumeric="true"
+           NoDot="true"
+           ng-model-options="{updateOn: keyup, blur }"
+           (keyup)="checkValid()"
+           (blur)="checkValid()"
+           [ngbTooltip]=""
+           #npiTooltip="ngbTooltip"
+           triggers="manual"
+           [class.border-error]="!npiValid" />
+  </div>
+  <div class="col-sm-2 vet-search-margin-right">
+    <input type="text"
+           class="form-control"
+           id="Tin"
+           name="tin"
+           [(ngModel)]="parameters.tin"
+           minlength="4"
+           maxlength="9"
+           IeNumeric="true"
+           NoDot="true"
+           ng-model-options="{updateOn: keyup}"
+           (keyup)="checkValid()"
+           [ngbTooltip]=""
+           #tinTooltip="ngbTooltip"
+           triggers="manual"
+           [class.border-error]="!tinValid"/>
+  </div>
+  <div class="col-sm-2 vet-search-margin-right">
+    <input type="text"
+           class="form-control"
+           id="PlaceOfService"
+           name="placeOfService"
+           [(ngModel)]="parameters.placeOfService"
+           ng-model-options="{updateOn: keyup}"
+           (keyup)="checkValid()"
+           (blur)="checkValid()"
+ />
+
+  </div>
+  <div class="col-sm-2 vet-search-margin-right">
+    <input type="text"
+           class="form-control"
+           id="Name"
+           name="name"
+           [(ngModel)]="parameters.name"
+           ng-model-options="{updateOn: keyup}"
+           (keyup)="checkValid()"
+           (blur)="checkValid()" />
+  </div>
+  <div class="col-sm-2 vet-search-margin-right">
+    <input type="text"
+           class="form-control"
+           id="Group"
+           name="group"
+           [(ngModel)]="parameters.group"
+           ng-model-options="{updateOn: keyup}"
+           (keyup)="checkValid()"
+           (blur)="checkValid()" />
+  </div>
+  <div class="col-sm-3 vet-search-margin-right">
+    <ng-select type="text"
+               id="Specialty"
+               name="specialty"
+               [items]="mockSpecialties"
+               [(ngModel)]="parameters.specialty"
+               #vetState="ngModel"
+               placeholder="Select Specialty"
+               (removed)="specialtyRemoved()"
+               (selected)="selected()">
+    </ng-select>
+    <!--
+    <input type="text"
+           class="form-control"
+           id="Specialty"
+           name="specialty"
+           [(ngModel)]="parameters.specialty"
+           ng-model-options="{updateOn: keyup}"
+           (keyup)="checkValid()"
+           (blur)="checkValid()" />
+        -->
+  </div>
+</div>
+<div class="row col-sm-12 margin-top-10">
+  <div class="col-sm-3 vet-search-margin-right"><b>Phone Number</b></div>
+  <div class="col-sm-3 vet-search-margin-right"><b>Address</b></div>
+  <div class="col-sm-2 vet-search-margin-right"><b>City</b></div>
+  <div class="col-sm-3 vet-search-margin-right"><b>State</b></div>
+  <div class="col-sm-2 vet-search-margin-right"><b>Zip</b></div>
+</div>
+<div class="row col-sm-12">
+  <div class="col-sm-3 vet-search-margin-right">
+    <input type="number"
+           IeNumeric="true"
+           NoDot="true"
+           class="form-control"
+           id="Phone"
+           name="phone"
+           [(ngModel)]="parameters.phone"
+           ng-model-options="{updateOn: keyup}"
+           (keyup)="checkValid()"
+           (blur)="checkValid()" />
+  </div>
+  <div class="col-sm-3 vet-search-margin-right">
+    <input type="text"
+           class="form-control"
+           id="Address"
+           name="address"
+           [(ngModel)]="parameters.address"
+           ng-model-options="{updateOn: keyup}"
+           (keyup)="checkValid()"
+           (blur)="checkValid()" />
+  </div>
+  <div class="col-sm-2 vet-search-margin-right">
+    <input type="text"
+           class="form-control"
+           id="City"
+           name="city"
+           [(ngModel)]="parameters.city"
+           ng-model-options="{updateOn: keyup}"
+           (keyup)="checkValid()"
+           (blur)="checkValid()" />
+  </div>
+  <div class="col-sm-3 vet-search-margin-right">
+    <ng-select type="text"
+               id="State"
+               name="state"
+               [items]="states"
+               [(ngModel)]="parameters.state"
+               #vetState="ngModel"
+               placeholder="Select State"
+               (removed)="stateRemoved()"
+               (selected)="selected()">
+    </ng-select>
+  </div>
+  <div class="col-sm-2 vet-search-margin-right">
+    <input type="text"
+           class="form-control"
+           id="PostalCode"
+           name="postalCode"
+           IeNumeric="true"
+           NoDot="true"
+           [(ngModel)]="parameters.zip"
+           ng-model-options="{updateOn: keyup}"
+           (keyup)="checkValid()"
+           (blur)="checkValid()" />
+  </div>
+</div>

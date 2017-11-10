@@ -1,0 +1,59 @@
+﻿<div id="status-view" class="col-xs-12 row" *ngIf="veteran">
+<div class="status-panel" style="margin-right:10px;">   
+  <a href="vet/appointments">
+    <div class="appointments">
+      <div class="status-title">
+        <b>CCN APPOINTMENTS</b>
+        <span class="status-year">[2017]</span>
+      </div>
+      <span class="status-data">
+        <img class="status-image" src="assets/images/Vet360-Icon-Appointments.png" />
+        {{ veteran.countOfAppointments }}
+      </span>
+    </div>
+  </a>
+</div>  
+<div class="status-panel" style="margin-right:10px;">
+  <a href="vet/providers">
+    <div class="providers">
+      <div class="status-title">
+        <b>CCN PROVIDERS</b>
+        <span class="status-year">[2017]</span>
+      </div>
+      <span class="status-data">
+        <img class="status-image" src="assets/images/Vet360-Icon-Providers.png" />
+        {{ veteran.countOfProviders }}
+      </span>
+    </div>
+  </a>
+</div>   
+<div class="status-panel" style="margin-right:10px;">
+    <a href="vet/prescriptions">
+      <div class="prescriptions">
+
+        <div class="status-title">
+          <b>CCN PRESCRIPTIONS</b>
+          <span class="status-year">[2017]</span>
+        </div>
+        <span class="status-data">
+          <img class="status-image" src="assets/images/Vet360-Icon-Prescriptions.png" />
+          {{ veteran.countOfPrescriptions }}
+        </span>
+      </div>
+    </a>
+</div>  
+<div class="status-panel">    
+  <a href="vet/medical-claims">
+    <div class="medical-claims">
+      <div class="status-title">
+        <b>CCN MEDICAL CLAIMS</b>
+        <span class="status-year">[2017]</span>
+      </div>
+      <span class="status-data">
+        <img class="status-image" src="assets/images/Vet360-Icon-Claims.png" />
+        {{ veteran.countOfAuths }}
+      </span>
+    </div>
+  </a>   
+</div>
+</div>

@@ -1,0 +1,30 @@
+<div class="row portal-header">
+  <app-title-bar class="col-sm-12"></app-title-bar>
+  <nav class="top-menu col-sm-12">
+    <app-profile-bar class="user-profile-bar col-sm-12"></app-profile-bar>
+  </nav>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="ccn-view-background">
+      <div class="col-sm-12 col-xs-12">
+        <router-outlet></router-outlet>
+        <div style="clear: both;">&nbsp;</div>
+
+        <div class="tracker-spacer" *ngIf="isTrackerShown"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- End App Template. -->
+<!--Tracker Slider-->
+<div class="flex-container">
+  <tracker-slider></tracker-slider>
+  <qsi-pane></qsi-pane>
+</div>
+
+
+

@@ -1,0 +1,689 @@
+/* boostrap style overrides */
+.btn-primary {
+}
+
+/* Application/Element level styles */
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #fff !important;
+  padding-left: 0%;
+  padding-right: 0%;
+}
+
+
+/*Imports Over-rides*/
+/*media queries*/
+
+@media all and (orientation: portrait) and (max-width:768px) {
+  ngb-tabset ul {
+    justify-content: center !important;
+  }
+}
+
+/*
+base.default.css
+*/
+a {
+  /*remove so that links does not appear as transitions*/
+  -moz-transition: inherit;
+  -o-transition: inherit;
+  -webkit-transition: inherit;
+  transition: all linear 0s;
+ }
+/*
+End base.default.css
+ */
+
+
+/*
+tabs.css
+*/
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+  border-color: #dfe4ed;
+}
+/*
+End tabs.css
+ */
+
+
+
+/*
+dropdown.css
+*/
+.dropdown .dropdown-inline-button:hover, .dropdown .dropdown-inline-button:focus, .dropdown .dropdown-inline-button:active {
+  color: #bbb8cb;
+}
+/*
+End dropdowns.css
+ */
+
+
+
+
+/*Imports Over-rides END*/
+
+
+
+
+/* Hand-cursor for all "btn" class items, on hover, except for disabled items. */
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn[disabled]:hover {
+  cursor: not-allowed;
+}
+
+
+/* Utility Styles */
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.no-padding {
+  padding: 0px !important;
+}
+
+.allcaps {
+  text-transform: capitalize;
+}
+
+
+/* main component space background. */
+.ccn-view-background {
+  background-color: #e9e9e9;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin-left: 2%;
+  padding-left: 1%;
+  padding-right: 1%;
+  /*margin-bottom: .5%;*/
+  width: 95%;
+  height: auto;
+}
+
+/* App Title Bar Styles */
+
+
+header-bar {
+  background-color: #fff;
+}
+
+.triwest-logo {
+  height: 45px;
+  margin: 10px;
+}
+
+ccn-title-bar {
+  background-color: white;
+}
+
+.portal-brand, .portal-title {
+  float: right;
+  color: #333;
+  font-family: Arial, sans-serif;
+  font-size: 26px;
+  font-weight: bold;
+  margin-right: 4px;
+  text-transform: uppercase;
+  margin: 10px;
+}
+
+.portal-brand {
+  color: #99B731;
+  text-transform: none;
+  margin-right: 0px;
+}
+
+.title {
+  margin-top: 10px;
+}
+
+
+/* app-profile-bar */
+nav.top-menu {
+  background-color: #1a2d5d;
+  height: 58px;
+  padding-top: 0px;
+  top: unset !important;
+  position: inherit !important;
+}
+
+.top-menu .menu {
+  padding: 0px 16px !important;
+}
+
+/* Left-side menu items on app-profile bar */
+.header-buttons {
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: bold;
+  color: #e0f2f8;
+}
+
+.dropdown .dropdown-inline-button {
+  color: #dde3ef;
+  height: 58px;
+}
+
+
+  .dropdown .dropdown-inline-button:hover, .dropdown .dropdown-inline-button:focus, .dropdown .dropdown-inline-button:active {
+    color: #dde3ef;
+  }
+
+  .dropdown .dropdown-inline-button:visited {
+    color: #dde3ef;
+  }
+
+  .dropdown .dropdown-inline-button:active,
+  .dropdown .dropdown-inline-button:hover {
+    color: #fff;
+    background-color: #001E4D;
+    border-bottom: solid 4px #98CF3E
+  }
+
+.hidden-lg-down {
+  margin-top: 16px;
+}
+
+.vet-chat {
+  margin-top: 8px;
+}
+/* right-hand dropdown "profile" menu on user-profile-bar. */
+div.upb-menu-right {
+  color: #dde3ef;
+  height: 32px;
+  margin-top: 8px;
+}
+
+  div.upb-menu-right:hover {
+    color: #fff;
+    cursor: pointer;
+  }
+
+.user-profile-bar {
+  padding: 0 0 !important;
+}
+
+.dropdown upb-menu-right dropdown-toggle .portal-header {
+  height: 104px;
+  clear: both;
+}
+
+.profile-bar-user {
+  text-transform: capitalize;
+  font-family: Arial;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.menu-user-block {
+  margin-right: 24px;
+}
+
+.menu-info-block {
+  margin-left: 24px;
+}
+
+.dropdown-inline-button {
+  margin-right: 12px;
+}
+
+div.header-buttons {
+  margin-top: 0px !important;
+}
+
+.portal-title-portal {
+}
+
+.ccn-pad-panel-left {
+  padding-left: 8px !important;
+}
+
+.ccn-pad-panel-right {
+  padding-right: 8px !important;
+}
+
+nav.top-menu .menu {
+  height: 46px !important;
+}
+
+/*Beging app-landing-page*/
+app-landing-page .box {
+  margin: 0 auto;
+  width: 300px;
+  height: 230px;
+  margin-top: 100px;
+  text-align: center;
+}
+/*End app-landing-page*/
+
+
+/*Beging app-profile-bar*/
+app-profile-bar #user-glyph {
+  vertical-align: middle;
+}
+/*End app-profile-bar*/
+
+
+
+
+/* Quadrant-wide */
+.quadrant-title {
+  border-bottom-color: #01a8fe !important;
+  border-bottom-style: solid;
+  padding-left: 0px !important;
+  margin-left: 16px;
+  font: bold 18px arial;
+}
+
+.quadrant-height {
+  height: 360px
+}
+
+.view-label-type {
+  font-family: Arial;
+  font-size: 26pt;
+  font-weight: bold;
+  color: #92C933;
+}
+
+.view-label-value {
+  font-family: Arial;
+  font-size: 26pt;
+  font-weight: bold;
+  color: #333333;
+}
+
+/* 360 Search Component */
+.tw-search-head {
+  padding: 16px 0px 32px 0px !important;
+}
+
+.quadrant-title-collapse {
+  cursor: pointer;
+  padding-right: 8px !important;
+  margin-bottom: 4px;
+}
+
+.panel-footer.tw-search-footer {
+  padding-top: 5px !important;
+  padding-bottom: 6px;
+}
+
+.tw-search-el {
+  margin-right: 4px;
+  margin-left: 8px;
+}
+
+.portal-search-custom {
+  padding-right: 8px;
+}
+
+.vet-search-margin-right {
+  margin-right: -2.8% !important;
+}
+
+.ui-select-container {
+  width: 100% !important;
+}
+
+.referral-search-field {
+  margin-right: -2% !important;
+}
+
+.referral-search-label {
+  font-weight: bold;
+}
+
+.ui-select-toggle {
+  height: 35px !important;
+  padding-top: 4px !important;
+  background-color: #fff !important;
+  color: #000 !important;
+  border-color: #dfe4ed !important; /* Same as default "form-control" class. */
+}
+
+.ui-select-match-text.pull-left {
+  color: #000 !important;
+}
+
+i.dropdown-toggle.pull-right {
+  color: #000 !important;
+}
+
+portal-search {
+  font: 11px arial, sans-serif;
+}
+
+#VetVamc {
+  font: 11px arial, sans-serif;
+}
+
+
+/*app-root*/
+app-root .tracker-spacer {
+  position: relative;
+  height: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/*app-root end*/
+
+
+/*****Veteran Home*****/
+
+/**Status Bar - start **/
+.status-panel {
+  width: 358px;
+  height: 145px;
+  text-align: center;
+  cursor: pointer;
+}
+
+  .status-panel .appointments {
+    background-color: #B5CCE3;
+    border-radius: 5px;
+  }
+
+  .status-panel .providers {
+    background-color: #97BFDF;
+    border-radius: 5px;
+  }
+
+  .status-panel .prescriptions {
+    background-color: #82B6DC;
+    border-radius: 5px;
+  }
+
+  .status-panel .medical-claims {
+    background-color: #C2D96D;
+    border-radius: 5px;
+  }
+
+.status-title {
+  padding-top: 10px;
+  font-family: 'Arial';
+  font-size: 18pt;
+  color: white;
+  line-height: 1;
+}
+
+.status-year {
+  font-size: 14pt;
+}
+
+.status-image {
+  margin: 10px;
+  height: 80px;
+  width: 80px;
+}
+
+.status-data {
+  font-family: 'Arial';
+  font-size: 35pt;
+  font-weight: bold;
+  color: white;
+}
+/***Status Bar - End ***/
+
+/*general info documentation start*/
+
+general-info-documentation .link-coloumns {
+  -moz-column-count: 3;
+  -ms-column-count: 3;
+  -webkit-column-count: 3;
+  column-count: 3;
+  margin-top: 14px;
+  column-fill: balance;
+  grid-auto-columns: max-content;
+}
+
+@media only screen and (max-width: 800px) {
+  general-info-documentation .link-coloumns {
+    -moz-column-count: 1;
+    -ms-column-count: 1;
+    -webkit-column-count: 1;
+    column-count: 1;
+    margin-top: 14px;
+    column-fill: balance;
+    grid-auto-columns: max-content;
+  }
+}
+
+general-info-documentation .list {
+  list-style: none;
+  list-style-type: none;
+}
+
+general-info-documentation .nav-link {
+  font-family: Arial;
+  font-weight: bold;
+  color: #666666;
+  font-size: 1em;
+}
+
+  general-info-documentation .nav-link .active {
+    color: #3F3F3F;
+  }
+
+  general-info-documentation .nav-link:hover {
+    color: rgba(15, 134, 166, 1);
+  }
+
+general-info-documentation .tab-pane a {
+  color: rgba(15, 134, 166, 1);
+  list-style: none;
+  text-decoration: underline;
+  margin: 0;
+  /*padding: 0 0 0 1em;*/
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 1.1111em;
+}
+/*general info documentation end*/
+
+
+/*to-do-today component start*/
+to-do-today {
+  font-family: Arial;
+}
+
+  to-do-today .ml-auto {
+    color: #D6D6D6;
+  }
+
+  to-do-today .nav-item a {
+    padding-left: 0px;
+  }
+
+
+  to-do-today .tab-content {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  to-do-today .nav-item {
+    font-weight: bold;
+    color: #333333;
+    font-size: 1.4286em;
+    /*font-size: 18pt;*/
+  }
+
+  to-do-today .d-flex {
+    font-weight: bold;
+    font-size: 1.3em;
+    color: #007FA5;
+  }
+
+  to-do-today .list-inline {
+    margin-bottom: 0em;
+  }
+
+  to-do-today .card-body {
+    margin-top: 10px;
+    font-size: 1.26984em;
+    padding-left: 17.5px;
+    padding-right: 17.5px;
+    color: #333333;
+  }
+
+  to-do-today .card-header {
+    background-color: white;
+  }
+
+  to-do-today .card-body a {
+    font-weight: bold;
+    color: #007FA5;
+  }
+
+  to-do-today .card {
+    border: 1px solid rgba(0, 0, 0, .125);
+  }
+
+  to-do-today .card-block {
+    border: 1px solid rgba(0, 0, 0, .125);
+   color: #333333;
+  }
+
+    to-do-today .card-block a {
+      font-weight: bold;
+      color: #007FA5;
+    }
+/*to-do-today component End*/
+
+
+/******End Veteran Home******/
+
+/*** NgbTooltip styles, for errors. */
+.tooltip {
+  top: -24px !important;
+}
+
+  .tooltip .tooltip-inner {
+    background: red;
+    padding: 4px 5px;
+    color: #ffffff;
+    font-size: 11px;
+  }
+
+
+
+
+.form-control.vet-ssn.ssn-error, .form-control.vet-ssn.ssn-error:active,
+.form-control.border-error, .form-control.border-error:active {
+  border-color: red !important;
+}
+
+
+/*** END NgbTooltip styles, for errors. */
+
+/* Footer */
+
+#SiteBottomNavigation {
+  /*background-color: #F9F9F9;*/
+  color: #0071B8;
+  text-align: center;
+  clear: both;
+  font-size: 11px;
+  margin: 0;
+  /*overflow: hidden;*/
+  padding: 10px 0;
+  width: 100%;
+  font-family: Arial;
+}
+
+
+  #SiteBottomNavigation #upperBottomNavLinks a {
+    font-size: 12px;
+  }
+
+  #SiteBottomNavigation #bottonNavLinks a {
+    font-size: 11px;
+  }
+
+
+
+  #SiteBottomNavigation a {
+    color: #0071B8;
+    /*text-decoration: none;*/
+    margin: 0;
+    padding: 10px 10px 10px 0;
+  }
+
+  #SiteBottomNavigation ul li {
+    border-right: 1px solid #ffffff;
+    display: inline;
+    /*list-style: none;*/
+    margin: 0;
+    padding: 0 0 0 10px;
+    text-align: center;
+  }
+
+    #SiteBottomNavigation ul li:last-child {
+      border-right: none
+    }
+
+#bottomNavCopy {
+  color: #646464; /*rgba(180, 180, 180, 1);*/
+  font-size: 11px;
+}
+
+/* end footer */
+
+
+
+/*Notification*/
+
+notification {
+  font-family: Arial;
+}
+
+  notification .tooltip .tooltip-inner {
+    background: rgba(242, 244, 248, 1);
+    color: #000000;
+    font-size: 12px;
+  }
+
+  notification .nav-item {
+    font-weight: bold;
+    color: #333333;
+    font-size: 1.4286em;
+  }
+
+  notification .datatable-header-cell > div {
+    font-weight: bold;
+    color: #333333;
+    font-size: 1.0em;
+  }
+
+/* End Notification*/
+
+/* start csr-home-notifications styles */
+.csr-home-notifications {
+  overflow-y: scroll;
+  height: 560px;
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+  margin-top: -8px;
+}
+
+  .breadcrumb > li::after {
+    content: '' !important;
+    padding: 0 !important;
+  }
+
+  .breadcrumb > li:last-child {
+    font-weight: bold;
+  }

@@ -1,0 +1,128 @@
+<div class="row col-sm-12">
+    <div class="col-sm-2 referral-search-field referral-search-label">Referral Number</div>
+    <div class="col-sm-4 referral-search-field referral-search-label">VAMC</div>
+    <div class="col-sm-2 referral-search-field referral-search-label">Veteran Last Name</div>
+    <div class="col-sm-2 referral-search-field referral-search-label">Veteran First Name</div>
+    <div class="col-sm-2 referral-search-field referral-search-label">Veteran Number</div>
+</div>
+<div class="row col-sm-12">
+    <div class="col-sm-2 referral-search-field">
+        <input type="text" class="form-control" id="ReferralNumber" name="referralNumber" [(ngModel)]="params.referralNumber" ng-model-options="{updateOn: keyup}" (keyup)="checkValid()" (blur)="checkValid()" />
+    </div>
+    <div class="col-sm-4 referral-search-field">
+        <ng-select type="text"
+                    id="Vamc"
+                    name="vamc"
+                    [items]="vamcs"
+                    [allowClear]="true"
+                    [(ngModel)]="params.vamcs"
+                    placeholder="Select VAMC"
+                    (removed)="dropdownRemoved()"
+                    (data)="checkValid()"
+                    (selected)="selected()">
+        </ng-select>
+    </div>
+    <div class="col-sm-2 referral-search-field">
+        <input type="text" class="form-control" id="VeteranLastName" name="veteranLastName" [(ngModel)]="params.veteranLastName" ng-model-options="{updateOn: keyup}" (keyup)="checkValid()" (blur)="checkValid()" />
+    </div>
+    <div class="col-sm-2 referral-search-field">
+        <input type="text" class="form-control" id="VeteranFirstName" name="veteranFirstName" [(ngModel)]="params.veteranFirstName" ng-model-options="{updateOn: keyup}" (keyup)="checkValid()" (blur)="checkValid()" />
+    </div>
+    <div class="col-sm-2 referral-search-field">
+        <input type="text" class="form-control" id="MemberNumber" name="memberNumber" [(ngModel)]="params.memberNumber" ng-model-options="{updateOn: keyup}" (keyup)="checkValid()" (blur)="checkValid()" />
+    </div>
+</div>
+<div class="row col-sm-12">
+    <div class="col-sm-3 referral-search-field referral-search-label">Provider</div>
+    <div class="col-sm-3 referral-search-field referral-search-label">Program</div>
+    <div class="col-sm-3 referral-search-field referral-search-label">Category of Care</div>
+    <div class="col-sm-3 referral-search-field referral-search-label">Profile</div>
+</div>
+<div class="row col-sm-12">
+    <div class="col-sm-3 referral-search-field">
+        <input type="text" class="form-control" id="Provider" name="provider" [(ngModel)]="params.provider" ng-model-options="{updateOn: keyup}" (keyup)="checkValid()" (blur)="checkValid()" />
+    </div>
+    <div class="col-sm-3 referral-search-field">
+        <ng-select type="text"
+                   id="Program"
+                   name="program"
+                   [items]="programs"
+                   [allowClear]="true"
+                   placeholder="Select Program"
+                   [(ngModel)]="params.veteranPrograms"
+                   (removed)="dropdownRemoved()"
+                   (data)="checkValid()"
+                   (selected)="selected()">
+        </ng-select>
+    </div>
+    <div class="col-sm-3 referral-search-field">
+        <ng-select type="text"
+                   id="CategoryOfCare"
+                   name="categoryOfCare"
+                   [items]="categoryOfCareItems"
+                   [allowClear]="true"
+                   placeholder="Select Category of Care"
+                   [(ngModel)]="params.categoryOfCares"
+                   (removed)="dropdownRemoved()"
+                   (data)="checkValid()"
+                   (selected)="selected()">
+        </ng-select>
+    </div>
+    <div class="col-sm-3 referral-search-field">
+        <ng-select type="text"
+                   id="Profile"
+                   name="profile"
+                   [items]="profiles"
+                   [allowClear]="true"
+                   placeholder="Select Profile"
+                   [(ngModel)]="params.veteranProfiles"
+                   (removed)="dropdownRemoved()"
+                   (data)="checkValid()"
+                   (selected)="selected()">
+        </ng-select>
+    </div>
+</div>
+<div class="row col-sm-12">
+    <div class="col-sm-2 referral-search-field referral-search-label">Zip Code</div>
+    <div class="col-sm-3 referral-search-field referral-search-label">Create Date From</div>
+    <div class="col-sm-3 referral-search-field referral-search-label">Create Date To</div>
+    <div class="col-sm-4 referral-search-field referral-search-label">Reason Code - DTR</div>
+</div>
+<div class="row col-sm-12">
+    <div class="col-sm-2 referral-search-field">
+        <input type="number" class="form-control" id="VeteranZipCode" name="veteranZipCode" [(ngModel)]="params.veteranZipCode" pattern="\d{4}" IeNumeric="true" ng-model-options="{updateOn: keyup}" (keyup)="checkValid()" (blur)="checkValid()" />
+    </div>
+    <div class="col-sm-3 referral-search-field">
+        <input  class="form-control left"
+               placeholder="mm/dd/yyyy"
+               name="dpCreatedOnStart"
+               [(ngModel)]="params.createdOnStart"
+               ng-model-options="{updateOn: keyup}"
+               (blur)="checkValid()"
+               (keyup)="checkValid()"
+               (ngModelChange)="checkValid()">
+    </div>
+    <div class="col-sm-3 referral-search-field">
+        <input  class="form-control left"
+               placeholder="mm/dd/yyyy"
+               name="dpCreatedOnEnd"
+               [(ngModel)]="params.createdOnEnd"
+               ng-model-options="{updateOn: keyup}"
+               (blur)="checkValid()"
+               (keyup)="checkValid()"
+               (ngModelChange)="checkValid()">
+    </div>
+    <div class="col-sm-4 referral-search-field">
+        <ng-select type="text"
+                    id="ReasonCode"
+                    name="reasonCode"
+                    [items]="reasonCodes"
+                    [allowClear]="true"
+                    placeholder="Select Reason Code"
+                    [(ngModel)]="params.reasonCodes"
+                    (removed)="dropdownRemoved()"
+                    (data)="checkValid()"
+                    (selected)="selected()">
+        </ng-select>
+    </div>
+</div>

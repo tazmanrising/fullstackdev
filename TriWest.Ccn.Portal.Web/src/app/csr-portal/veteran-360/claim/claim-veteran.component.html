@@ -1,0 +1,82 @@
+<div  *ngIf="showData" class="row padding-top-5">
+  <div class="col-sm-6 text-bottom">
+    <h4 class="quadrant-title left margin-bottom-10">Claims</h4>
+  </div>
+  <div class="col-sm-6 text-right padding-right-10 padding-bottom-10">
+    <button class="btn btn-primary" (click)="viewAll($event)">View All</button>
+  </div>
+</div>
+<div *ngIf="showData" class="row padding-10">
+  <ngx-datatable class="bootstrap"
+                 [rows]="claimDatas"
+                 [loadingIndicator]="loadingIndicator"
+                 [columnMode]="'standard'"
+                 [limit]="5"
+                 [headerHeight]="50"
+                 [rowHeight]="'auto'"
+                 [reorderable]="reorderable">
+    
+    <ngx-datatable-column name="ID" [width]="75">
+      <ng-template ngx-datatable-header-template let-sort="sortFn">
+        <span (click)="sort()"><b>Claim #</b></span>
+      </ng-template>
+      <ng-template ngx-datatable-cell-template let-row="row">
+        <a href="#" (click)="clickDetail($event, value)">{{row.id}}</a>
+      </ng-template>
+    </ngx-datatable-column>
+    
+    <ngx-datatable-column name="ProviderName" [width]="125">
+      <ng-template ngx-datatable-header-template let-sort="sortFn">
+        <span (click)="sort()"><b>Provider</b></span>
+      </ng-template>
+      <ng-template ngx-datatable-cell-template let-row="row">
+        <a href="#" (click)="clickProvider($event, row)">{{row.providerName}}</a>
+      </ng-template>
+    </ngx-datatable-column>
+    
+    <ngx-datatable-column name="BeginDate" [width]="100">
+      <ng-template ngx-datatable-header-template let-sort="sortFn">
+        <span class="text-center" (click)="sort()"><b>Begin Date</b></span>
+      </ng-template>
+      <ng-template ngx-datatable-cell-template let-row="row">
+        <div class="text-center width-full">{{row.beginDate}}</div>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Charges" [width]="100">
+      <ng-template ngx-datatable-header-template let-sort="sortFn">
+        <span (click)="sort()"><b>Charges</b></span>
+      </ng-template>
+      <ng-template ngx-datatable-cell-template let-row="row">
+        <div class="width-full text-right">{{row.charges}}</div>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="PaidAmount" [width]="100">
+      <ng-template ngx-datatable-header-template let-sort="sortFn">
+        <span (click)="sort()"><b>Paid Amount</b></span>
+      </ng-template>
+      <ng-template ngx-datatable-cell-template let-row="row">
+        <div class="width-full text-right">{{row.paidAmount}}</div>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="ReferenceID" [width]="50">
+      <ng-template ngx-datatable-header-template>
+        <span class="text-center"><b>EOB</b></span>
+      </ng-template>
+      <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+        <div class="text-center width-full"><i (click)="clickEOB($event, row)" class="fa fa-paperclip" style="font-size:1.5em"></i></div>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Status" [width]="100">
+      <ng-template ngx-datatable-header-template let-sort="sortFn">
+        <span (click)="sort()"><b>Status</b></span>
+      </ng-template>
+      <ng-template ngx-datatable-cell-template let-row="row">
+        <div class="text-center width-full">{{row.status}}</div>
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+</div>

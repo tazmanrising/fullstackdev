@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <ngb-tabset>
+          <ngb-tab *ngFor="let tab of tabs" title="{{tab.title}}">
+            <ng-template ngbTabContent class="tabs">
+              <div class="row">
+                <div class="link-coloumns">
+                  <ul *ngFor="let t of tab.content; let idx = index;" class="list">
+                    <li>
+                      <img src="assets/images/Vet360-Icon-Checkbox.png" />
+                      <a title="{{t.title}}" href="{{t.url}}" target="_blank">{{t.title}}</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,184 @@
+<div class="panel col-sm-12 ccn-pad-panel-right" style="margin-top:16px; margin-bottom:16px;">
+  <div class="row no-gutters" style="margin-top: 16px; padding-left: 16px;">
+    <div class=""><h3 class=" quadrant-title ">Validate Veteran</h3></div>
+  </div>
+  <div class="row no-gutters" style="margin-top: 8px; padding-left: 20px;">
+    <div class="col-sm-3 margin-right-10">
+      <br /><span class="margin-right-10 margin-top-10">Is this a veteran representative? </span>
+      <input id="IsRepresentative" type="checkbox" [(ngModel)]="isRepresentative" />
+    </div>
+    <div *ngIf="isRepresentative" class="col-sm-2 margin-right-10">
+      Last Name
+      <span class="color-danger">*</span>
+      <input required
+             id="repLName"
+             name="repLName"
+             placeholder="Rep Last Name"
+             [(ngModel)]="parameters.repLName"
+             type="text"
+             class="form-control"
+             #repLName="ngModel" />
+    </div>
+    <div *ngIf="isRepresentative"
+         class="col-sm-2 margin-right-10">
+      First Name
+      <span class="color-danger">*</span>
+      <input type="text"
+             id="repFName"
+             name="repFName"
+             required
+             class="form-control"
+             placeholder="Rep First Name"
+             [(ngModel)]="parameters.repFName"
+             #repFName="ngModel" />
+    </div>
+    <div *ngIf="(isRepresentative) && (parameters.repLName === '' || parameters.repFName === '')" class="col-sm-4 margin-right-10 alert alert-danger">
+      <br />
+      <span class="color-white">
+        Representative first and last name must not be empty.
+      </span>
+    </div>
+  </div>
+  <div class="row no-gutters" style="margin-top: 16px; padding-left: 20px;">
+    <div class="col-sm-2 margin-right-10">Last Name <span class="color-danger">*</span></div>
+    <div class="col-sm-2 margin-right-10">First Name</div>
+    <div class="col-sm-2 margin-right-0">SSN (Last 4 Digits)<span class="color-danger">*</span></div>
+    <div class=""><span class="color-danger">(or)</span> </div>
+    <div class="col-sm-2 margin-right-10">Date of Birth <span class="color-danger">*</span></div>
+  </div>
+  <div class="row no-gutters margin-bottom-15" style="margin-top: 4px; padding-left: 16px;">
+    <div class="col-sm-2 margin-right-10">
+      <input type="text"
+             id="lastName"
+             name="lastName"
+             required
+             class="form-control"
+             placeholder="Last Name"
+             [(ngModel)]="parameters.lastName"
+             #lastName="ngModel"
+             ng-model-options="{updateOn: keyup, blur}"
+           (keyup)="checkValid()"
+           (blur)="checkValid()"
+             />
+    </div>
+    <div class="col-sm-2 margin-right-10">
+      <input #firstName="ngModel"
+             required
+             type="text"
+             id="firstName"
+             name="firstName"
+             class="form-control"
+             placeholder="First Name"
+             [(ngModel)]="parameters.firstName"
+           ng-model-options="{updateOn: keyup, blur}"
+           (keyup)="checkValid()"
+           (blur)="checkValid()"
+             />
+    </div>
+    <div class="col-sm-2 ">
+      <input #ssnLast4="ngModel"
+             required
+             type="number"
+             pattern="\d{4}"
+             IeNumeric="true"
+             id="ssnLast4"
+             name="ssnLast4"
+             class="form-control"
+             [(ngModel)]="parameters.ssnLast4"
+             placeholder="SSN, Last 4 Digits"
+             maxlength="4"
+             minlength="4"
+           ng-model-options="{updateOn: keyup, blur}"
+           (keyup)="checkValid()"
+           (blur)="checkValid()"
+             />
+    </div>
+    <div class=" margin-right-25"></div>
+    <div class="col-sm-2 margin-right-10 input-group">
+      <input id="dateOfBirth"
+             style="width: 75%; height: 36px;"
+             class="form-control"
+             placeholder="mm/dd/yyyy"
+             name="dateOfBirth"
+             [(ngModel)]="parameters.dob"
+             ngbDatepicker
+             #d="ngbDatepicker"
+             #dateOfBirth="ngModel"
+             required
+             (ngModelChange)="checkValid()"
+           ng-model-options="{updateOn: keyup, blur}"
+           (keyup)="checkValid()"
+           (blur)="checkValid()"/>
+
+      <button id="searchButton" class="left btn btn-primary" (click)="d.toggle();" type="button" style="height: 36px;">
+        <i class="fa fa-calendar"></i>
+      </button>
+    </div>
+    <div class="col-sm-2"><button class="btn btn-default" 
+                                  [class.btn-primary]="searchEnabled" (click)="doSearch()" 
+                                  [disabled]="!searchEnabled">Search</button></div>
+  </div>
+  <div class="row no-gutters" style="margin-top: 16px; padding-left: 20px;">
+    <div class="min-height-50"></div>
+    <div *ngIf="lastName.invalid && lastName.touched" class="alert alert-danger col-sm-3 margin-right-10">
+      Last Name is a required field.
+    </div>
+    <div *ngIf="(ssnLast4.invalid && ssnLast4.touched) && (parameters.dob && (!parameters.dob.year || parameters.dob.year < 1900) && dateOfBirth.touched)"
+         class="alert alert-danger col-sm-3 margin-right-10">
+      The caller's date of birth, or the last 4 digits of their SSN is required.
+    </div>
+  </div>
+  <div class="margin-15 padding-15" *ngIf="searchComplete">
+    <ngx-datatable class="bootstrap veterans"
+                   [rows]="results"
+                   [cssClasses]="{sortAscending: 'sort-desc'}"
+                   [columnMode]="'force'"
+                   [headerHeight]="50"
+                   [rowHeight]="'auto'"
+                   [reorderable]="reorderable"
+                   [selected]="selected"
+                   [selectionType]="'single'"
+                   (select)='onSelectRow($event, content)'
+                   [messages]="{emptyMessage: '<strong>No results match search criteria</strong>'}">
+      <ngx-datatable-column name="Last Name"></ngx-datatable-column>
+      <ngx-datatable-column name="First Name"></ngx-datatable-column>
+      <ngx-datatable-column name="SSN (Last 4 Digits)" prop="ssnLast4"></ngx-datatable-column>
+      <ngx-datatable-column name="Date of Birth" prop="dateOfBirth">
+        <ng-template let-value="value" ngx-datatable-cell-template>{{value | date: 'M/d/yyyy'}}</ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+  <div class="margin-15 padding-15 alert alert-info" *ngIf="showLoadingIndicator">
+    <i class="fa fa-spin fa-cog fa-2x"></i><span class="font-size-16 margin-left-5 vertical-align-middle">Searching</span>
+  </div>
+  <div class="row no-gutters margin-bottom-15 pull-right" style="margin-top: 16px; padding-left: 16px;" *ngIf="results != undefined">
+    <button class="btn btn-primary margin-right-15" (click)="clickGeneral()">General Info</button>
+    <button class="btn btn-default margin-right-15" [class.btn-primary]="allowContinue" [disabled]="!allowContinue" (click)="clickContinue(content)">Continue</button>
+  </div>
+</div>
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Validate Veteran Representative</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('canceled')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p *ngIf="!modalMessage">Please check the list below to ensure that {{ parameters.repFName }} {{ parameters.repLName }} is an authorized representative.</p>
+    <ul *ngIf="!modalMessage">
+      <ng-template ngFor let-alert [ngForOf]="selected[0].hippaAlerts" let-i="index">
+        <li>{{alert.message}} </li>
+      </ng-template>
+    </ul>
+  </div>
+  <div *ngIf="modalMessage" class="modal-body alert alert-danger">
+    <p> {{modalMessage}}</p>
+  </div>
+  <div *ngIf="modalMessage" class="modal-footer">
+    <button type="button" class="btn  btn-primary" (click)="c('canceled')">Close</button>
+  </div>
+  <div *ngIf="!modalMessage" class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="c('confirmed')">Confirm</button>
+    <button type="button" class="btn btn-primary-outline" (click)="d('canceled')">Cancel</button>
+  </div>
+</ng-template>

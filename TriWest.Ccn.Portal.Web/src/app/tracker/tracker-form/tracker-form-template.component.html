@@ -1,0 +1,234 @@
+<div class="container-fluid tracker-font tracker-sizing" >
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)" novalidate>
+    <div class="row session-tracker-header " (click)="toggleMenu()">
+      <div class="col-xs-6 margin-top-5">
+        <h4 style="color:#C2D96D;">
+          <img src="assets/images/info-active.png" />&nbsp;SESSION TRACKER
+          <i class="fa fa-chevron-circle-right fa-lg" aria-hidden="true" style="margin-left: 25px; color: #F9F9F9"></i>
+        </h4>
+      </div>
+    </div>
+
+    <!--Session Tracker Row Ends-->
+    <!--Session # and Start labels-->
+
+    <div class="row justify-content-start line-fixer label-region margin-bottom">
+      <div class="col-xs-6" style="width: 160px; ">
+        <label class="spacing-fixer label-bold margin-bottom">SESSION</label>
+        <div>
+          <label name="session" id="session">{{model.sessionId}}</label>
+          <input type="text" hidden [ngModel]="model.sessionId" name="session" />
+        </div>
+      </div>
+
+
+
+      <div class="col-xs-6">
+        <label class="spacing-fixer label-bold"> SESSION START</label>
+        <div>
+          <label id="date" name="timeStart">
+            {{date | date : 'short'}}
+          </label>
+          <input type="text" hidden [ngModel]="model.timerStart" name="timerStart" />
+        </div>
+      </div>
+    </div>
+    <!--Session # and Start label Ends-->
+    <!--CONTACT TYPE STARTS-->
+    <div class="row justify-content-start line-fixer label-region margin-bottom">
+      <div class="col-xs-6">
+        <label class="spacing-fixer label-bold "> CONTACT TYPE *</label>
+        <div>
+          <ul class="list-inline">
+            <!--*ngIf="setContact"-->
+            <li *ngFor="let contact of contactTypes">
+              <input name="contactType" type="radio" value="{{contact.contactTypeId}}"
+
+                     id="contactType"
+                     [(ngModel)]="model.contactTypeId" #contactType="ngModel" required /> {{contact.contactTypeName}}
+            </li>
+          </ul>
+          <!--<div *ngIf="!setContact">{{trackerForm.controls['contactType'].value}}   put in input (click)="setContactFlag()"  </div>-->
+        </div>
+      </div>
+    </div>
+
+    <!--CONTACT TYPE ENDS-->
+
+    <div class="row justify-content-start line-fixer label-region margin-bottom">
+      <div class="col-xs-6">
+        <label class="spacing-fixer label-bold"> CUSTOMER TYPE *</label>
+        <div>
+          <ul class="list-inline">
+            <!--*ngIf="setCustomer"-->
+            <li *ngFor="let customer of customerTypes; let idx = index">
+              <input class="labelBold" name="customerTypeId" type="radio" value="{{customer.customerTypeId}}"
+                     (change)="onSelectCustomer(idx + 1)" id="customerType"
+                     [(ngModel)]="model.customerTypeId" #customerType="ngModel" required /> {{customer.customerTypeName}}
+            </li>
+          </ul>
+          <!--<div *ngIf="!setCustomer">{{trackerForm.controls['customerType'].value}} put in input  (click)="setCustomerFlag()"</div>-->
+        </div>
+      </div>
+    </div>
+
+
+    <!--CUSTOMER TYPE ENDS-->
+    <!--INSERT CATEGORY AND SUB CATEGORY-->
+    <!--TODO-->
+    <div class="row justify-content-start line-fixer spacing-fixer">
+      <div class="col-xs-6">
+        <label class="spacing-fixer label-bold drop-down"> CATEGORY *</label>
+      </div>
+      <div class="col-xs-6" style="padding-left: 0px;">
+        <label class="spacing-fixer label-bold"> SUB CATEGORY *</label>
+      </div>
+    </div>
+    <div class="row justify-content-start margin-bottom">
+      <div class="col-xs-6 ">
+        <select name="categoryId" (change)="onSelectCategory($event.target.value)"
+                class="drop-down" [(ngModel)]="model.categoryId" #category="ngModel"
+                
+                preventSelect
+                required>
+          <option selected value="null">--Select--</option>
+          <option id="category" *ngFor="let cat of categories" value={{cat.categoryId}}>{{cat.categoryName}}</option>
+        </select>
+      </div>
+      <div class="col-xs-6" style="padding-left: 0px;">
+        <select name="subCategoryId" class="drop-down" [(ngModel)]="model.subCategoryId" #subCategory="ngModel"
+                preventSelect
+                
+                required>
+          <option selected value="null">--Select--</option>
+          <option id="subCategory" *ngFor="let subC of subCategories" value={{subC.subCategoryId}}>{{subC.subCategoryName}}</option>
+        </select>
+
+      </div>
+    </div>
+    <!--END CATERGORY AND SUB CATEGORY-->
+    <!--CONTACT INFORMATION START-->
+
+    <div class="row justify-content-start line-fixer">
+      <div class="col-xs-6">
+        <label class="spacing-fixer label-bold"> CONTACT INFORMATION </label>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-xs-6" style="height:1.5em;width: 160px">
+        <label>First Name *</label>
+      </div>
+      <div class="col-xs-6" style="height:1.5em;">
+        <label>Last Name *</label>
+      </div>
+    </div>
+
+
+    <div class="row justify-content-start margin-bottom">
+      <div class="col-xs-6">
+
+        <input type="text" class="form-control-sm" placeholder="First Name" name="firstName"
+               maxlength="80" id="firstName" [(ngModel)]="model.firstName" #firstName="ngModel"
+               required />
+
+        <input type="text" class="form-control-sm" placeholder="Last Name"
+               name="lastName" maxlength="80" id="lastName" [(ngModel)]="model.lastName"
+               #lastName="ngModel"
+               required />
+      </div>
+    </div>
+
+    <div class="row justify-content-start ">
+      <div class="col-xs-6" style="height:1.5em; width: 160px">
+        <label>Phone *</label>
+      </div>
+      <div class="col-xs-6" style="height:1.5em;">
+        <label class="extention-label">Extension</label>
+      </div>
+    </div>
+
+    <div class="row justify-content-start margin-bottom">
+      <div class="col-xs-6">
+        <input type="text" class="form-control-sm phone"
+               id="phone"
+               name="phone" minlength="14" maxlength="14" [(ngModel)]="model.phone"
+               pattern="((\(\d{3}\) ))\d{3}-\d{4}"
+               mask-input="(***) ***-****"
+               IeNumeric="true"
+               NoDot ="true"
+               #phone="ngModel" ngControl="phone"
+               [modify]="model.phone"
+               placeholder="(123) 456-7890"
+               required />
+
+
+
+        <input type="text" class="form-control-sm"
+               IeNumeric="true"
+               NoDot ="true"
+               placeholder="Extension"
+               name="phoneExtension"
+               maxlength="7"
+               id="extension"
+               [(ngModel)]="model.phoneExtension"
+               #extension="ngModel"  />
+      </div>
+    </div>
+
+
+
+    <!--CONTACT INFORMATION ENDS-->
+    <!--NOTES START-->
+    <div class="row justify-content-start">
+      <div class="col-xs-6">
+        <label for="notes" class="spacing-fixer">Notes *</label>
+      </div>
+
+    </div>
+    <div class="row justify-content-start margin-bottom">
+      <div class="col-xs-6">
+        <textarea rows="6" cols="46" name="notes" maxlength="4000"
+                  id="notes" style="padding-right: 5px;"
+                  (keyup)="characterCounter()"
+                  [(ngModel)]="model.sessionNote" #notes="ngModel" required></textarea>
+
+      </div>
+    </div>
+
+    <div>
+      <small class="notes-counter" style="margin-left: 160px;">
+        Remaining Characters:  {{charCounter}}
+      </small>
+
+    </div>
+
+
+
+
+    <!--NOTES ENDS-->
+
+
+
+
+
+    <div class="row justify-content-start margin-top-10">
+      <div class="col-xs-6">
+      
+          <button href="#" [disabled]="!f.valid" [class.invalid]="!f.valid" class="end-session" type="submit">End Session</button>
+       
+       
+      </div>
+    </div>
+    <!--FORM ENDS
+        routerLink=''
+        -->
+
+
+  </form>
+
+</div>
+
+
+

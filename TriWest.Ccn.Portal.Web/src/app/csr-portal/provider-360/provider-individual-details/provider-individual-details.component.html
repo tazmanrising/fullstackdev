@@ -1,0 +1,57 @@
+﻿<div *ngIf="providerInfo !== undefined" class="margin-left-15">
+  <div class="row margin-top-15">
+    <div class="col-sm-6">
+      Group Name: <strong *ngIf="providerInfo">{{ providerInfo.groupName }}</strong>
+    </div>
+    <div class="col-sm-6">
+      Tax ID Number: <strong *ngIf="providerInfo">{{ providerInfo.taxId }}</strong>
+    </div>
+  </div>
+  <div class="row margin-top-5">
+    <div class="col-sm-6">
+      Practitioner Name or Facility Name: <strong *ngIf="providerInfo">{{ providerInfo.providerName }}</strong>
+    </div>
+    <div class="col-sm-6">
+      Contract Status: <strong *ngIf="providerInfo">{{ providerInfo.practitionerContractStatus }}</strong>
+    </div>
+  </div>
+  <div class="row margin-top-5">
+    <div class="col-sm-6">
+      Gender: <strong *ngIf="providerInfo">{{ providerInfo.practitionerGender }}</strong>
+    </div>
+    <div class="col-sm-6">
+      Contract Begin Date: <strong *ngIf="providerInfo">{{ providerInfo.practitionerContractStartOn | date:'shortDate' }}</strong>
+    </div>
+  </div>
+  <div class="row margin-top-5">
+    <div class="col-sm-6">
+      Specialty: <strong *ngIf="providerInfo">{{ providerInfo.practitionerSpecialty }}</strong>
+    </div>
+    <div class="col-sm-6">
+      Contract End Date: <strong *ngIf="providerInfo">{{ providerInfo.practitionerContractEndOn | date:'shortDate' }}</strong>
+    </div>
+  </div>
+  <div class="row margin-top-5">
+    <div class="col-sm-6">
+      Practitioner NPI:  <strong *ngIf="providerInfo">{{ providerInfo.practitionerNpi }}</strong>
+    </div>
+    <div class="col-sm-6">
+      Contract DCN: <strong *ngIf="providerInfo">{{ providerInfo.practitionerContractDcn }}</strong>
+    </div>
+  </div>
+  <div class="row margin-top-5">
+    <div class="col-sm-6">
+      Organization NPI: <strong *ngIf="providerInfo">{{ providerInfo.groupNpi }}</strong>
+    </div>
+    <div class="col-sm-6">
+      Accepts New Patients: <strong *ngIf="providerInfo">{{ ((providerInfo.practitionerAcceptingPatients === 'true') ? 'Yes' : 'No') }}</strong>
+    </div>
+  </div>
+  <div class="row margin-top-15" style="bottom: 0px;">
+    <div class="col-sm-6"></div>
+    <div class="col-sm-6">
+      <button (click)="updateInfo()" class="btn btn-primary right">Update Provider Information</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="providerInfo === undefined" class="alert alert-info  font-size-14 margin-top-15"><i class="fa fa-spin fa-cog fa-2x"></i><span class="font-size-16 margin-left-5 vertical-align-middle">Loading Data</span></div>

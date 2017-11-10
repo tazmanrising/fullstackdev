@@ -1,0 +1,13 @@
+﻿ <div class="panel panel-default">
+    <div class="panel-body">
+      <h4>Training Message</h4>
+      <div *ngIf="trainingMessage">
+        <br />
+        <div> {{trainingMessage.title}}<br /> {{trainingMessage.createdOn  | formatDate | date:'shortDate'}} </div>
+        <br />
+        <div [innerHTML]="trainingMessage.message">
+        </div>
+        <br />
+      </div>
+  </div>
+</div>

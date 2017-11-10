@@ -1,0 +1,102 @@
+<!--<div>test ref</div>
+<ul>
+  
+  <li *ngFor="let product of referrals">
+    -- id: {{product.id}}
+    -- name: {{product.vaPcp}}
+    -- Icd10Diagnosis: {{product.icd10Diagnosis}}
+    -- OrderingOfficer: {{product.orderingOfficer}}
+  </li>
+</ul>--> 
+<br /><br />
+<form #f="ngForm">
+  
+  <!--<button class="btn btn-danger" type="button">insert</button>-->
+
+  <div class="container-fluid">
+    <!-- If Needed Left and Right Padding in 'md' and 'lg' screen means use container class -->
+    <div class="row">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="border:1px solid black;">
+        <div>
+          New Referral
+        </div>
+        <div>
+          Prior AUTH
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="approvalReferralAuth">Approved Referral Number/ Prior AUTH Number</label>
+          <input type="text" class="form-control" id="approvalReferralAuth" #approvalReferralAuth="ngModel" [(ngModel)]="referral.approvalReferralAuth" name="approvalReferralAuth" aria-describedby="emailHelp" placeholder="Enter AUTH">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Contract Number </label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Contract">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Task CLINXX </label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter CLINXX">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">CID DATE</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter CID Date">
+        </div>
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="border:1px solid black;">
+
+        <div class="form-group">
+          <label for="exampleInputEmail1"> VA PCP or PCP Listed on Referral</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter CID Date">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Ordering Officer</label>
+          <input type="text" class="form-control" #orderingOfficer="ngModel" [(ngModel)]="referral.orderingOfficer" name="orderingOfficer" id="orderingOfficer" aria-describedby="emailHelp" placeholder="Ordering Officer">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1"> VA PCP or PCP Listed on Referral</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter CID Date">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1"> VA PCP or PCP Listed on Referral</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter CID Date">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1"> VA PCP or PCP Listed on Referral</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter CID Date">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1"> VA PCP or PCP Listed on Referral</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter CID Date">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1"> VA PCP or PCP Listed on Referral</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter CID Date">
+        </div>
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="border:1px solid black;">
+        Who is Appointing?
+        <div class="form-group">
+          <select class="form-control" #selectElem (change)="setNewUser(selectElem.value)">
+            <option *ngFor="let t of appointers" [value]="t.id">
+              {{t.Name}}
+            </option>
+          </select>
+          <div id="appointResult"></div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1"> VA PCP or PCP Listed on Referral</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter CID Date">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <button class="btn btn-primary" (click)="insertDetails()">Insert</button>
+</form>
+
+
+
+
+
+
+

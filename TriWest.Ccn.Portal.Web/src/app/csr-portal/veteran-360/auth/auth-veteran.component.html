@@ -1,0 +1,60 @@
+<div *ngIf="showData" class="row padding-top-5">
+    <div class="col-sm-6 text-bottom">
+        <h4 class="quadrant-title left margin-bottom-10">Referrals</h4>
+    </div>
+    <div class="col-sm-6">
+        <button class="btn btn-primary right" (click)="viewAll()">View All</button>
+    </div>
+</div>
+<div *ngIf="showData" class="row padding-10">
+    <ngx-datatable class="bootstrap"
+                   [rows]="authDatas"
+                   [loadingIndicator]="loadingIndicator"
+                   [columnMode]="'force'"
+                   [headerHeight]="50"
+                   [rowHeight]="50"
+                   [scrollbarV]="true"
+                   [footerHeight]="0"
+                   [width]="180"
+                   [reorderable]="reorderable">
+        <ngx-datatable-column name="referralNumber" [width]="200">
+            <ng-template ngx-datatable-header-template let-sort="sortFn">
+                <span (click)="sort()"><b>Referral #</b></span>
+            </ng-template>
+            <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                <a href="#" (click)="clickDetail($event, value)">{{value}}</a>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Profile" [width]="200">
+            <ng-template ngx-datatable-header-template let-sort="sortFn">
+                <span (click)="sort()"><b>Profile</b></span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Program">
+            <ng-template ngx-datatable-header-template let-sort="sortFn">
+                <span (click)="sort()"><b>Program</b></span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="VAMC" [width]="180">
+            <ng-template ngx-datatable-header-template let-sort="sortFn">
+                <span (click)="sort()"><b>VAMC</b></span>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="CreatedOn">
+            <ng-template ngx-datatable-header-template let-sort="sortFn">
+                <span (click)="sort()"><b>Create Date</b></span>
+            </ng-template>
+            <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                <div class="text-center width-full">{{value}}</div>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="ReasonCode" [width]="200">
+            <ng-template ngx-datatable-header-template let-sort="sortFn">
+                <span (click)="sort()"><b>Reason Code</b></span>
+            </ng-template>
+            <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                <div class="text-left width-full">{{value}}</div>
+            </ng-template>
+        </ngx-datatable-column>
+    </ngx-datatable>
+</div>

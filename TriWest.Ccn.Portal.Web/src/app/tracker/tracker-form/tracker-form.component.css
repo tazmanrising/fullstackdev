@@ -1,0 +1,26 @@
+.trackerFont {
+  font-family: 'Times New Roman', Times, serif
+}
+
+.spacingFixer {
+  margin-bottom : 0px;
+}
+
+.lineFixer {
+  line-height: normal;
+}
+
+.labelBold {
+   font-weight: bold;
+}
+
+.labelRegion {
+  height: 35px;
+  width : 350px;
+
+}
+
+.dropDown {
+  height: 20px;
+  width: 150px;
+}

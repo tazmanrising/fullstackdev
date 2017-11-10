@@ -1,0 +1,87 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A594A883-1518-4FAB-950C-E0CC9954256F}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TriWest.Ccn.Portal.Services", "TriWest.Ccn.Portal.Services\TriWest.Ccn.Portal.Services.csproj", "{FA799796-B2D8-4C8F-B901-2E66E14A1084}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TriWest.Ccn.Portal.Common", "TriWest.Ccn.Portal.Common\TriWest.Ccn.Portal.Common.csproj", "{C415C17F-9C2C-439F-A6CC-BF79CB9E7A4D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TriWest.Ccn.Portal.Web", "TriWest.Ccn.Portal.Web\TriWest.Ccn.Portal.Web.csproj", "{339E6FB6-8646-4118-B935-9CEC279826D4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TriWest.Ccn.Portal.Services.Tests", "TriWest.Ccn.Portal.Services.Tests\TriWest.Ccn.Portal.Services.Tests.csproj", "{D78A1420-B11D-418F-9046-7CC00D4E60BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{51ED50A0-4BED-4B7E-AFAD-C0D48EA7B302}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcClient", "Triwest.Ccn.Portal.MvcClient\MvcClient.csproj", "{B97193C8-1072-4434-A642-346DA7F1ED34}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResourceOwnerClient", "Triwest.Ccn.Portal.ResourceOwnerClient\ResourceOwnerClient.csproj", "{36361D89-96E8-46B2-B98E-5EAAEA027CDA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TriWest.Ccn.Portal.IdentityServer", "TriWest.Ccn.Portal.IdentityServer\TriWest.Ccn.Portal.IdentityServer.csproj", "{035376B9-A1CD-4E67-954F-3A8EDBA2CAB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JavascriptClient", "JavascriptClient\JavascriptClient.csproj", "{2481D233-E715-4BB0-8C75-ED38CC1C4C22}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TriWest.Ccn.Portal.DBProject", "TriWest.Ccn.Portal.DBProject\TriWest.Ccn.Portal.DBProject.sqlproj", "{3CA61B41-062C-4E23-977E-6B99723D3F85}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA799796-B2D8-4C8F-B901-2E66E14A1084}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA799796-B2D8-4C8F-B901-2E66E14A1084}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA799796-B2D8-4C8F-B901-2E66E14A1084}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA799796-B2D8-4C8F-B901-2E66E14A1084}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C415C17F-9C2C-439F-A6CC-BF79CB9E7A4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C415C17F-9C2C-439F-A6CC-BF79CB9E7A4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C415C17F-9C2C-439F-A6CC-BF79CB9E7A4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C415C17F-9C2C-439F-A6CC-BF79CB9E7A4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{339E6FB6-8646-4118-B935-9CEC279826D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{339E6FB6-8646-4118-B935-9CEC279826D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{339E6FB6-8646-4118-B935-9CEC279826D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{339E6FB6-8646-4118-B935-9CEC279826D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D78A1420-B11D-418F-9046-7CC00D4E60BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D78A1420-B11D-418F-9046-7CC00D4E60BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D78A1420-B11D-418F-9046-7CC00D4E60BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D78A1420-B11D-418F-9046-7CC00D4E60BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B97193C8-1072-4434-A642-346DA7F1ED34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B97193C8-1072-4434-A642-346DA7F1ED34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B97193C8-1072-4434-A642-346DA7F1ED34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B97193C8-1072-4434-A642-346DA7F1ED34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36361D89-96E8-46B2-B98E-5EAAEA027CDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36361D89-96E8-46B2-B98E-5EAAEA027CDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36361D89-96E8-46B2-B98E-5EAAEA027CDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36361D89-96E8-46B2-B98E-5EAAEA027CDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{035376B9-A1CD-4E67-954F-3A8EDBA2CAB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{035376B9-A1CD-4E67-954F-3A8EDBA2CAB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{035376B9-A1CD-4E67-954F-3A8EDBA2CAB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{035376B9-A1CD-4E67-954F-3A8EDBA2CAB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2481D233-E715-4BB0-8C75-ED38CC1C4C22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2481D233-E715-4BB0-8C75-ED38CC1C4C22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2481D233-E715-4BB0-8C75-ED38CC1C4C22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2481D233-E715-4BB0-8C75-ED38CC1C4C22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CA61B41-062C-4E23-977E-6B99723D3F85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CA61B41-062C-4E23-977E-6B99723D3F85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CA61B41-062C-4E23-977E-6B99723D3F85}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3CA61B41-062C-4E23-977E-6B99723D3F85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CA61B41-062C-4E23-977E-6B99723D3F85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CA61B41-062C-4E23-977E-6B99723D3F85}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B97193C8-1072-4434-A642-346DA7F1ED34} = {51ED50A0-4BED-4B7E-AFAD-C0D48EA7B302}
+		{36361D89-96E8-46B2-B98E-5EAAEA027CDA} = {51ED50A0-4BED-4B7E-AFAD-C0D48EA7B302}
+		{2481D233-E715-4BB0-8C75-ED38CC1C4C22} = {51ED50A0-4BED-4B7E-AFAD-C0D48EA7B302}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BD6F29D9-9940-4288-9C0C-B42C074EA307}
+	EndGlobalSection
+EndGlobal

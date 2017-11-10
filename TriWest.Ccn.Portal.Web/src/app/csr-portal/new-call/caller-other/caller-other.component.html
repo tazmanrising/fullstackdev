@@ -1,0 +1,38 @@
+﻿<div class="panel col-sm-12 ccn-pad-panel-right" 
+     style="margin-top:16px; margin-bottom:18px; padding-bottom:3px;">
+  <form #otherForm="ngForm" novalidate>
+    <div class="row no-gutters" style="margin-top: 16px; padding-left: 16px;">
+      <div class=""><h3 class=" quadrant-title ">Validate Other</h3></div>
+    </div>
+    <div class="row no-gutters" style="margin-top: 16px; padding-left: 20px;">
+      <div class="col-sm-2 margin-right-10">Last Name&nbsp;<span style="color: red;">*</span></div>
+      <div class="col-sm-2 margin-right-10">First Name&nbsp;<span style="color: red;">*</span></div>
+    </div>
+
+    <div class="row no-gutters margin-bottom-15" style="margin-top: 4px; padding-left: 16px;">
+      <div class="col-sm-2 margin-right-10">
+        <input type="text" id="lastName" name="lastName"
+               #lastName="ngModel" placeholder="Last Name" required
+               class="form-control" [(ngModel)]="caller.lastName"
+               [class.has-error]="lastName.invalid && lastName.touched" />
+        <div class="alert alert-danger" id="lastNameError"
+             *ngIf="lastName.invalid && lastName.touched">
+          Last Name is required field
+        </div>
+      </div>
+      <div class="col-sm-2 margin-right-10">
+        <input type="text" id="firstName" name="firstName"
+               #firstName="ngModel" placeholder="First Name" required
+               class="form-control" [(ngModel)]="caller.firstName"
+               [class.has-error]="firstName.invalid && firstName.touched" />
+        <div class="alert alert-danger"
+             *ngIf="firstName.invalid && firstName.touched">
+          First Name is required field
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="row no-gutters margin-bottom-15 pull-right">
+  <button class="btn btn-primary margin-right-15" (click)="generalInfo($event)">General Info</button>
+</div>

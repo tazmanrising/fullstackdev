@@ -1,0 +1,12 @@
+﻿<div class="container">
+  <nav class="justify-content-center">
+   
+      <button class="btn btn-default menu-items margin-right-10" *ngFor="let item of defaultMenu" routerLink="{{item.url}}" 
+              [class.btn-default]="item!==isActive" [class.btn-primary]="item===isActive" 
+              data-toggle="tooltip" data-placement="bottom" title="{{item.name}}"
+              (click)="activate(item)">{{item.name}}</button>
+    
+  </nav>
+</div>
+
+

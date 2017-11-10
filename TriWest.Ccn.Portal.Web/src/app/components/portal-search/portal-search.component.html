@@ -1,0 +1,100 @@
+<section class="row col-sm-12 no-gutters">
+  <div class="panel panel-with-borders col-sm-12 tw-search-el" style="">
+    <div class="panel-heading tw-search-head">
+      <div class="quadrant-title col-sm-1 left">Search</div>
+      <div class="quadrant-title-collapse col-sm-1 right" [ngSwitch]="isCollapsed" (click)="isCollapsed = !isCollapsed">
+        <i *ngSwitchCase="false" class="fa fa-minus-square-o fa-2x right color-default"></i>
+        <i *ngSwitchCase="true" class="fa fa-plus-square-o fa-2x right color-default"></i>
+      </div>
+    </div>
+    <div class="panel-body tw-search-body" *ngIf="!isCollapsed">
+      <div class="row" style="margin-right: 0px;">
+        <div class="col-sm-2">
+          <strong>Search Type</strong><br />
+          <select class="form-control" id="SearchTypeName" name="searchTypeName" [(ngModel)]="searchTypeName" (change)="selectNewSearchType()">
+            <option value="veteran" [attr.selected]="(defaultsearch == 'veteran') ? 'selected' : null">Veteran</option>
+            <option value="provider" [attr.selected]="defaultsearch == 'provider' ? 'selected' : null">Provider</option>
+            <option value="vamc" [attr.selected]="(defaultsearch == 'vamc') ? 'selected' : null">VAMC</option>
+            <option value="referrals" [attr.selected]="(defaultsearch == 'referrals') ? 'selected' : null">Referrals</option>
+            <option value="claims" [attr.selected]="(defaultsearch == 'claims') ? 'selected' : null">Claims</option>
+          </select>
+        </div>
+        <div class="col-sm-9">
+          <veteran-search [style.display]="(searchTypeName ==='veteran') ? 'block' : 'none'"
+                          (newRows)="updateData($event)"
+                          (formValidated)="validated($event)">
+          </veteran-search>
+
+          <provider-search [style.display]="(searchTypeName ==='provider') ? 'block' : 'none'"
+                           (newRows)="updateData($event)"
+                           (formValidated)="validated($event)">
+          </provider-search>
+
+          <referral-search [style.display]="(searchTypeName ==='referrals') ? 'block' : 'none'"
+                           (newRows)="updateData($event)"
+                           (formValidated)="validated($event)">
+          </referral-search>
+
+          <claims-search [style.display]="(searchTypeName ==='claims') ? 'block' : 'none'"
+                          (newRows)="updateData($event)"
+                          (formValidated)="validated($event)">
+          </claims-search>
+
+        </div>
+        <div class="col-sm-1">
+          <p><button class="btn btn-default" [class.btn-primary]="canSearch" [disabled]="!canSearch" (click)="doSearch()">Search</button></p>
+          <button class="btn btn-primary" (click)="doClear()">&nbsp;Clear&nbsp;&nbsp;</button>
+        </div>
+      </div>
+
+      <div class="row margin-top-15">
+        <div class="col-sm-12"><hr /></div>
+      </div>
+      <!--<div class="row">
+        <div class="col-sm-1 text-right">Display </div>
+        <div class="col-sm-1">
+          <select class="form-control" id="MaxRows" name="maxRows" [(ngModel)]="maxRows" (change)="selectNewNumRows()">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+        </div>
+        <div class="col-sm-1">
+          Rows
+        </div>
+      </div>-->
+      <div class="row">
+        <div class="col-sm-12 alert alert-info font-size-14 margin-top-15"
+             *ngIf="isSearching">
+          <i class="fa fa-spin fa-cog fa-2x"></i>
+          <span class="font-size-16 margin-left-5 vertical-align-middle">Loading Data</span>
+        </div>
+        <div class="col-sm-12" *ngIf="!isSearching">
+          <ngx-datatable class="bootstrap"
+                         [rows]="rows"
+                         [columns]="columns"
+                         [columnMode]="'force'"
+                         [headerHeight]="50"
+                         [rowHeight]="'auto'"
+                         [footerHeight]="50"
+                         [width]="180"
+                         [messages]="{emptyMessage: 'No results match search criteria'}"
+                         [sorts]="sortInfo"
+                         [limit]="25" 
+                         [selected]="selected"
+                         [selectionType]="'single'"
+                         (dblclick)="dblClick()"
+                         [scrollbarH]="true">
+
+          </ngx-datatable>
+          <ng-template #dateCellTmpl let-row="row" let-value="value" let-i="index">{{value | date: 'M/d/yyyy'}}</ng-template>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer tw-search-footer">
+
+    </div>
+  </div>
+</section>
