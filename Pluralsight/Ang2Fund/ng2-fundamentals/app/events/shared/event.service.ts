@@ -4,11 +4,13 @@ import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs/Observable';
 import { Http, Response } from '@angular/http'
 import { Request } from '../request'
+import { Subject } from 'rxjs/RX'
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 
 import { IProduct } from './event.model'
+import { IEvent } from './event.model'
 
 @Injectable()
 export class EventService {
@@ -25,7 +27,7 @@ export class EventService {
     getProducts(): Observable<IProduct[]> {
         return this.http.get(this._productUrl)
             .map((response: Response) => <IProduct[]>response.json())
-            .do(data => console.log('All: ' + JSON.stringify(data)))  // do operator to peek 
+            .do(data => console.log('All: ' + JSON.stringify(data)))  // do operator to peek
             .catch(this.handleError);
     }
 
@@ -42,16 +44,20 @@ export class EventService {
     }
 
 
-    // new for routing to 1 event 
+    //  getEvent(id:number):IEvent{
+    //     // do an ajax call later on , for now 
+    //     return eventListing.find(event => event.id === id)
+    // }
+    // new for routing to 1 event
     getEvent(id:number){
-        // do an ajax call later on , for now 
+        // do an ajax call later on , for now
         return eventListing.find(event => event.id === id)
     }
 
 
-    getEvents() {
+    getEvents(){ //:Subject<IEvent[]> {
 
-        // OLD PROMISE way  
+        // OLD PROMISE way
         // this.Request.get("/user").then(response => {
         //     console.log("Got response:", response);
         // }).catch(error => {
@@ -62,7 +68,7 @@ export class EventService {
         //     console.log("Got another error:", error);
         // });
 
-        //  getCoins(): Observable<IEvent[]> { 
+        //  getCoins(): Observable<IEvent[]> {
         //    return this.http.get(this._url)
         //         .map((response: Response) => <IEvent[]>response.json());
         //     //console.log('b',b)
@@ -85,21 +91,28 @@ export class EventService {
             }
         )
 
-        //will be changing to ajax call 
+        //will be changing to ajax call
         //console.log('try')
+
         return eventListing
+
+        // let subject = new Subject<IEvent[]>()
+        // setTimeout(() => {subject.next(eventListing); subject.complete(); },
+        // 100)
+        // return subject
+
     }
 
     //getCoins(_url: string){
-    
+
     //WORKS
     getCoins() {
         return this.http.get(this._url)
             .map((response: Response) => response.json())
-            .do(data => console.log('All: ' + JSON.stringify(data)))  // do operator to peek 
+            .do(data => console.log('All: ' + JSON.stringify(data)))  // do operator to peek
             .catch(this.handleError);
     }
-    
+
     //WORKS
     zgetCoins() {
         console.log('about to..', this._url)
@@ -109,11 +122,11 @@ export class EventService {
                 data1.json()
                 console.log('coins', JSON.stringify(data1))
             })
-            //.do(data => console.log('All: ' + JSON.stringify(data)))  // do operator to peek 
+            //.do(data => console.log('All: ' + JSON.stringify(data)))  // do operator to peek
             .catch(error => Observable.throw(error))
     }
 
-    //do not have an interface 
+    //do not have an interface
     xgetCoins(): Observable<IProduct[]> {
         return this.http.get(this._url)
             .map((response: Response) => <IProduct[]>response.json());
@@ -135,7 +148,7 @@ export class EventService {
         return this.http.get(url)
             .map(data => {
                 data.json();
-                // the console.log(...) line prevents your code from working 
+                // the console.log(...) line prevents your code from working
                 // either remove it or add the line below (return ...)
                 console.log("I CAN SEE DATA HERE: ", data.json());
                 return data.json();
@@ -153,11 +166,12 @@ export class EventService {
 
 }
 
-const eventListing = [
+//const eventListing = [
+const eventListing:IEvent[] = [
     {
         id: 1,
         name: 'Angular Connect',
-        date: '9/26/2036',
+        date: new Date('9/26/2036'),
         time: '10:00 am',
         price: 599.99,
         imageUrl: '/app/assets/images/angularconnect-shield.png',
@@ -173,9 +187,9 @@ const eventListing = [
                 presenter: "Peter Bacon Darwin",
                 duration: 1,
                 level: "Intermediate",
-                abstract: `Learn all about the new pipes in Angular 4, both 
-          how to write them, and how to get the new AI CLI to write 
-          them for you. Given by the famous PBD, president of Angular 
+                abstract: `Learn all about the new pipes in Angular 4, both
+          how to write them, and how to get the new AI CLI to write
+          them for you. Given by the famous PBD, president of Angular
           University (formerly Oxford University)`,
                 voters: ['bradgreen', 'igorminar', 'martinfowler']
             },
@@ -185,9 +199,9 @@ const eventListing = [
                 presenter: "Jeff Cross",
                 duration: 1,
                 level: "Intermediate",
-                abstract: `We all know that our dev teams work hard, but with 
-          the right management they can be even more productive, without 
-          overworking them. In this session I'll show you how to get the 
+                abstract: `We all know that our dev teams work hard, but with
+          the right management they can be even more productive, without
+          overworking them. In this session I'll show you how to get the
           best results from the talent you already have on staff.`,
                 voters: ['johnpapa', 'bradgreen', 'igorminar', 'martinfowler']
             },
@@ -197,10 +211,10 @@ const eventListing = [
                 presenter: "Rob Wormald",
                 duration: 2,
                 level: "Advanced",
-                abstract: `Angular 4 Performance is hot. In this session, we'll see 
-          how Angular gets such great performance by preloading data on 
-          your users devices before they even hit your site using the 
-          new predictive algorithms and thought reading software 
+                abstract: `Angular 4 Performance is hot. In this session, we'll see
+          how Angular gets such great performance by preloading data on
+          your users devices before they even hit your site using the
+          new predictive algorithms and thought reading software
           built into Angular 4.`,
                 voters: []
             },
@@ -210,11 +224,11 @@ const eventListing = [
                 presenter: "Brad Green",
                 duration: 2,
                 level: "Advanced",
-                abstract: `Even though Angular 5 is still 6 years away, we all want 
-          to know all about it so that we can spend endless hours in meetings 
-          debating if we should use Angular 4 or not. This talk will look at 
-          Angular 6 even though no code has yet been written for it. We'll 
-          look at what it might do, and how to convince your manager to 
+                abstract: `Even though Angular 5 is still 6 years away, we all want
+          to know all about it so that we can spend endless hours in meetings
+          debating if we should use Angular 4 or not. This talk will look at
+          Angular 6 even though no code has yet been written for it. We'll
+          look at what it might do, and how to convince your manager to
           hold off on any new apps until it's released`,
                 voters: []
             },
@@ -224,9 +238,9 @@ const eventListing = [
                 presenter: "John Papa",
                 duration: 2,
                 level: "Beginner",
-                abstract: `It's time to learn the basics of Angular 4. This talk 
-          will give you everything you need to know about Angular 4 to 
-          get started with it today and be building UI's for your self 
+                abstract: `It's time to learn the basics of Angular 4. This talk
+          will give you everything you need to know about Angular 4 to
+          get started with it today and be building UI's for your self
           driving cars and butler-bots in no time.`,
                 voters: ['bradgreen', 'igorminar']
             }
@@ -235,7 +249,7 @@ const eventListing = [
     {
         id: 2,
         name: 'ng-nl',
-        date: '4/15/2037',
+        date: new Date('9/26/2036'),
         time: '9:00 am',
         price: 950.00,
         imageUrl: '/app/assets/images/ng-nl.png',
@@ -247,7 +261,7 @@ const eventListing = [
                 presenter: "Pascal Precht & Christoph Bergdorf",
                 duration: 4,
                 level: "Beginner",
-                abstract: `In this 6 hour workshop you will learn not only how to test Angular 4, 
+                abstract: `In this 6 hour workshop you will learn not only how to test Angular 4,
           you will also learn how to make the most of your team's efforts. Other topics
           will be convincing your manager that testing is a good idea, and using the new
           protractor tool for end to end testing.`,
@@ -269,7 +283,7 @@ const eventListing = [
                 presenter: "Patrick Stapleton",
                 duration: 2,
                 level: "Intermediate",
-                abstract: `Angular 4's source code may be over 25 million lines of code, but it's really 
+                abstract: `Angular 4's source code may be over 25 million lines of code, but it's really
           a lot easier to read and understand then you may think. Patrick Stapleton will talk
           about his secretes for keeping up with the changes, and navigating around the code.`,
                 voters: ['martinfowler']
@@ -280,9 +294,9 @@ const eventListing = [
                 presenter: "Lukas Ruebbelke",
                 duration: 1,
                 level: "Beginner",
-                abstract: `In this session, Lukas will present the 
-          secret to being awesome, and how he became the President 
-          of the United States through his amazing programming skills, 
+                abstract: `In this session, Lukas will present the
+          secret to being awesome, and how he became the President
+          of the United States through his amazing programming skills,
           showing how you too can be success with just attitude.`,
                 voters: ['bradgreen']
             },
@@ -291,7 +305,7 @@ const eventListing = [
     {
         id: 3,
         name: 'ng-conf 2037',
-        date: '5/4/2037',
+        date: new Date('9/26/2036'),
         time: '9:00 am',
         price: 759.00,
         imageUrl: '/app/assets/images/ng-conf.png',
@@ -319,7 +333,7 @@ const eventListing = [
                 presenter: "Jamison Dance",
                 duration: 2,
                 level: "Intermediate",
-                abstract: `React v449.6 has just been released. Let's see how to use 
+                abstract: `React v449.6 has just been released. Let's see how to use
           this new version with Angular to create even more impressive applications.`,
                 voters: ['bradgreen', 'martinfowler']
             },
@@ -329,9 +343,9 @@ const eventListing = [
                 presenter: "Rob Wormald",
                 duration: 1,
                 level: "Intermediate",
-                abstract: `Everyone is using Redux for everything from Angular to React to 
+                abstract: `Everyone is using Redux for everything from Angular to React to
           Excel macros, but you're still having trouble grasping it? We'll take a look
-          at how farmers use Redux when harvesting grain as a great introduction to 
+          at how farmers use Redux when harvesting grain as a great introduction to
           this game changing technology.`,
                 voters: ['bradgreen', 'martinfowler', 'johnpapa']
             },
@@ -351,7 +365,7 @@ const eventListing = [
                 presenter: "Ward Bell",
                 duration: 2,
                 level: "Beginner",
-                abstract: `Being a developer in 2037 is about more than just writing bug-free code. 
+                abstract: `Being a developer in 2037 is about more than just writing bug-free code.
           You also have to look the part. In this amazing expose, Ward will talk you through
           how to pick out the right clothes to make your coworkers and boss not only
           respect you, but also want to be your buddy.`,
@@ -373,7 +387,7 @@ const eventListing = [
     {
         id: 4,
         name: 'UN Angular Summit',
-        date: '6/10/2037',
+        date: new Date('9/26/2036'),
         time: '8:00 am',
         price: 800.00,
         imageUrl: '/app/assets/images/basic-shield.png',
@@ -389,7 +403,7 @@ const eventListing = [
                 presenter: "Sir Dave Smith",
                 duration: 2,
                 level: "Beginner",
-                abstract: `Yes, we all work with cyborgs and androids and Martians, but 
+                abstract: `Yes, we all work with cyborgs and androids and Martians, but
           we probably don't realize that sometimes our internal biases can make it difficult for
           these well-designed coworkers to really feel at home coding alongside us. This talk will
           look at things we can do to recognize our biases and counteract them.`,
@@ -412,7 +426,7 @@ const eventListing = [
                 presenter: "Dan Wahlin",
                 duration: 3,
                 level: "Advanced",
-                abstract: `Androids may do everything for us now, allowing us to spend all day playing 
+                abstract: `Androids may do everything for us now, allowing us to spend all day playing
           the latest Destiny DLC, but we can still improve the massages they give and the handmade
           brie they make using Angular 4. This session will show you how.`,
                 voters: ['igorminar', 'johnpapa']
@@ -422,7 +436,7 @@ const eventListing = [
     {
         id: 5,
         name: 'ng-vegas',
-        date: '2/10/2037',
+        date: new Date('9/26/2036'),
         time: '9:00 am',
         price: 400.00,
         imageUrl: '/app/assets/images/ng-vegas.png',
@@ -438,7 +452,7 @@ const eventListing = [
                 presenter: "John Papa",
                 duration: 1,
                 level: "Intermediate",
-                abstract: `No, this talk isn't about slot machines. We all know that 
+                abstract: `No, this talk isn't about slot machines. We all know that
           Angular is used in most waiter-bots and coke vending machines, but
           did you know that was also used to write the core engine in the majority
           of voting machines? This talk will look at how all presidential elections
@@ -452,7 +466,7 @@ const eventListing = [
                 duration: 2,
                 level: "Beginner",
                 abstract: `Get the skinny on Angular 4 for anyone new to this great new technology.
-          Dan Wahlin will show you how you can get started with Angular in 60ish minutes, 
+          Dan Wahlin will show you how you can get started with Angular in 60ish minutes,
           guaranteed!`,
                 voters: ['bradgreen', 'igorminar', 'johnpapa']
             }
