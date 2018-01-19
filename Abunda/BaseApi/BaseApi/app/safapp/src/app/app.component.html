@@ -4,13 +4,13 @@
     S.A.F. - 150
   </h1>
 </div>
-
+<form #form="ngForm" >
 <div class="col-lg-12">
-  <div class="card">
-    <div class="card-header">
+  <div class="panel panel-default">
+    <div class="panel-heading">
       <strong>Symptoms Analysis Format - Based on Basic Symptoms you are aware of</strong>
     </div>
-    <div class="card-block">
+    <div class="panel-body">
       <div class="table-responsive">
         <div class="container-fluid">
           <!-- If Needed Left and Right Padding in 'md' and 'lg' screen means use container class -->
@@ -64,8 +64,8 @@
 
 <br>
 <div class="col-lg-12">
-  <div class="card">
-    <div class="card-header">
+  <div class="panel panel-default">
+    <div class="panel-heading">
       <strong>Symptoms Analysis Format - Based on Basic Symptoms you are aware of</strong>
     </div>
     <div>
@@ -80,7 +80,7 @@
             <br>
             0 = Never; 1 = Rarely; 2 = Occasionally; 3 = Regularly; 4 = Often; 5 = Very Often</strong>
     </div>
-    <div class="card-block">
+    <div class="panel-body">
       <div class="table-responsive">
         <div class="container-fluid">
           <!-- If Needed Left and Right Padding in 'md' and 'lg' screen means use container class -->
@@ -109,7 +109,7 @@
                 <input id="group1E" [(ngModel)]="group1E" name="group1E" style="width: 40px;" type="text" class="form-control" placeholder="">
               </div>
               <div class="form-inline">
-                  <strong>Group 1  Total</strong>..................................................................................................... <input type="text" class="form-control" style="width: 50px;" id="group1" name="group1"> 
+                  <strong>Group 1  Total = {{group1A + group1B}}</strong>..................................................................................................... <input type="text" class="form-control" style="width: 50px;" id="group1" name="group1"> 
              </div>
             </div>
 
@@ -160,7 +160,7 @@
               </div>
               <div class="form-inline">
                 <label for="group1Dv">2. Do you have inflammation, Heat spots ? </label>
-                <input id="group1Dv" [(ngModel)]="group1Dv" name="group1Dv" style="width: 5px;" type="text" class="form-control" placeholder="">
+                <input id="group1Dv" required [(ngModel)]="group1Dv" name="group1Dv" style="width: 5px;" type="text" class="form-control" placeholder="">
               </div>
 
             </div>
@@ -269,7 +269,7 @@ Blood Pressure    Pulse Rate       List of Illnesses -->
     </div>
   </div> -->
 
-  <br>
+ 
 <!-- 
   <div class="row">
     <div class="col-xs-12" style="border:1px solid black;">
@@ -286,3 +286,21 @@ Blood Pressure    Pulse Rate       List of Illnesses -->
       </div>
     </div>
   </div> -->
+
+
+  <button type="submit">Ok</button>
+
+</form>
+
+<br>
+
+<form #f="ngForm" ngNativeValidate>
+  <input required type="text" name="firstName" ngModel>
+  <button type="submit">Submit</button>
+</form>
+
+{{ f.pristine }}
+
+<br><br>
+
+
