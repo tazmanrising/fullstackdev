@@ -8,6 +8,8 @@ import { SafAdminComponent } from './saf-admin/saf-admin.component';
 
 import { OnlyNumbers } from './core/directives/onlynumbrer.directive';
 
+import { NgPipesModule} from 'ngx-pipes';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { OnlyNumbers } from './core/directives/onlynumbrer.directive';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    NgPipesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

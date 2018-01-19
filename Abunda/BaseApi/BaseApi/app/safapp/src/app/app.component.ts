@@ -11,9 +11,16 @@ export class AppComponent implements OnInit {
   group1A: number = 0;
   group1B: number = 0;
 
+  group1Total: number;
+
 
   constructor() {
 
+  }
+
+
+  findTotal() {
+    this.group1Total = +this.group1A + +this.group1B;
   }
 
 
