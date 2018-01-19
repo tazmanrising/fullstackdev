@@ -90,7 +90,7 @@
               <div><strong>Group 1</strong></div>
               <div class="form-inline">
                 <label>1. Are you Prone to Infection, colds, coughs, or flu ?.............................. </label>
-                <input id="group1A" [(ngModel)]="group1A" name="group1A" style="width: 40px;" type="text" class="form-control" placeholder="">
+                <input onlynumbers="true" ng-maxlength="1" id="group1A" [(ngModel)]="group1A" name="group1A" style="width: 40px;" type="text" class="form-control" placeholder="">
               </div>
               <div class="form-inline">
                 <label for="group1B">2. Do you have inflammation, Heat spots ?................................................. </label>
@@ -113,7 +113,16 @@
              </div>
             </div>
 
-
+            Qty1 : <input onkeyup="findTotal()" type="text" name="qty" id="qty1"/><br>
+            Qty2 : <input onblur="findTotal()" type="text" name="qty" id="qty2"/><br>
+            Qty3 : <input onblur="findTotal()" type="text" name="qty" id="qty3"/><br>
+            Qty4 : <input onblur="findTotal()" type="text" name="qty" id="qty4"/><br>
+            Qty5 : <input onblur="findTotal()" type="text" name="qty" id="qty5"/><br>
+            Qty6 : <input onblur="findTotal()" type="text" name="qty" id="qty6"/><br>
+            Qty7 : <input onblur="findTotal()" type="text" name="qty" id="qty7"/><br>
+            Qty8 : <input onblur="findTotal()" type="text" name="qty" id="qty8"/><br>
+            <br><br>
+            Total : <input type="text" name="total" id="total"/>
            
 
             <div class="col-xs-12" style="border:1px solid black;">

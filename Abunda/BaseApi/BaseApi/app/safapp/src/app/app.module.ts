@@ -6,12 +6,15 @@ import { AppComponent } from './app.component';
 import { SafComponent } from './saf/saf.component';
 import { SafAdminComponent } from './saf-admin/saf-admin.component';
 
+import { OnlyNumbers } from './core/directives/onlynumbrer.directive';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     SafComponent,
-    SafAdminComponent
+    SafAdminComponent,
+    OnlyNumbers
   ],
   imports: [
     BrowserModule,
