@@ -14,6 +14,9 @@ export class AppComponent implements OnInit {
   group1Total: number;
 
 
+  bsValue: Date = new Date();
+  xbsValue: Date = new Date();
+
   constructor() {
 
   }

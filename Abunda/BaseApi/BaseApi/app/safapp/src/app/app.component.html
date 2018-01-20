@@ -4,169 +4,173 @@
     S.A.F. - 150
   </h1>
 </div>
-<form #form="ngForm" >
-<div class="col-lg-12">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <strong>Symptoms Analysis Format - Based on Basic Symptoms you are aware of</strong>
-    </div>
-    <div class="panel-body">
-      <div class="table-responsive">
-        <div class="container-fluid">
-          <!-- If Needed Left and Right Padding in 'md' and 'lg' screen means use container class -->
-          <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="border:1px solid black;">
-              <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input type="text" class="form-control" id="firstName" name="firstName" aria-describedby="emailHelp" placeholder="Enter First Name">
-                <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" id="lastName" name="lastName" aria-describedby="emailHelp" placeholder="Enter Last Name">
+<form #form="ngForm">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong>Symptoms Analysis Format - Based on Basic Symptoms you are aware of</strong>
+      </div>
+      <div class="panel-body">
+        <div class="table-responsive">
+          <div class="container-fluid">
+            <!-- If Needed Left and Right Padding in 'md' and 'lg' screen means use container class -->
+            <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="border:1px solid black;">
+                <div class="form-group">
+                  <label for="firstName">First Name</label>
+                  <input type="text" class="form-control" id="firstName" name="firstName" aria-describedby="emailHelp" placeholder="Enter First Name">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" class="form-control" id="lastName" name="lastName" aria-describedby="emailHelp" placeholder="Enter Last Name">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Contract Number </label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Contract">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Task CLINXX </label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter CLINXX">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">CID DATE</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter CID Date">
+                </div>
               </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Contract Number </label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Contract">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Task CLINXX </label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter CLINXX">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">CID DATE</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter CID Date">
-              </div>
-            </div>
 
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="border:1px solid black;">
-              Who is Appointing?
-              <div class="form-group">
-                <select class="form-control" #selectElem (change)="setNewUser(selectElem.value)">
-                  <option *ngFor="let t of appointers" [value]="t.id">
-                    {{t.Name}}
-                  </option>
-                </select>
-                <div id="appointResult"></div>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1"> VA PCP or PCP Listed on Referral</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter CID Date">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="border:1px solid black;">
+                Who is Appointing?
+                <div class="form-group">
+                  <select class="form-control" #selectElem (change)="setNewUser(selectElem.value)">
+                    <option *ngFor="let t of appointers" [value]="t.id">
+                      {{t.Name}}
+                    </option>
+                  </select>
+                  <div id="appointResult"></div>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1"> VA PCP or PCP Listed on Referral</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter CID Date">
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
-</div>
 
 
 
 
-<br>
-<div class="col-lg-12">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <strong>Symptoms Analysis Format - Based on Basic Symptoms you are aware of</strong>
-    </div>
-    <div>
-           <strong>Instructions: This test is based on symptoms you are presently aware of.  Answer each question from Number of 0 to 5 based on intensity. 
-            <br>
-            If you do not know, put down 0.   
-            If there is hesitation, close your eyes and list the first number that comes to you.  
-            <br>
-            Bring the Total down in each group. Be sure to read and sign. 
-            <br>
-            Based on intensity and frequency   
-            <br>
-            0 = Never; 1 = Rarely; 2 = Occasionally; 3 = Regularly; 4 = Often; 5 = Very Often</strong>
-    </div>
-    <div class="panel-body">
-      <div class="table-responsive">
-        <div class="container-fluid">
-          <!-- If Needed Left and Right Padding in 'md' and 'lg' screen means use container class -->
-          <div class="row">
+  <br>
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong>Symptoms Analysis Format - Based on Basic Symptoms you are aware of</strong>
+      </div>
+      <div>
+        <strong>Instructions: This test is based on symptoms you are presently aware of. Answer each question from Number of 0 to
+          5 based on intensity.
+          <br> If you do not know, put down 0. If there is hesitation, close your eyes and list the first number that comes to
+          you.
+          <br> Bring the Total down in each group. Be sure to read and sign.
+          <br> Based on intensity and frequency
+          <br> 0 = Never; 1 = Rarely; 2 = Occasionally; 3 = Regularly; 4 = Often; 5 = Very Often</strong>
+      </div>
+      <div class="panel-body">
+        <div class="table-responsive">
+          <div class="container-fluid">
+            <!-- If Needed Left and Right Padding in 'md' and 'lg' screen means use container class -->
+            <div class="row">
 
-            <div class="col-xs-12" style="border:1px solid black; padding:10px">
-              <div><strong>Group 1</strong></div>
-              <div class="form-inline">
-                <label>1. Are you Prone to Infection, colds, coughs, or flu ?.............................. </label>
-                <input onlynumbers="true" (keyup)="findTotal()" ng-maxlength="1" id="group1A" [(ngModel)]="group1A" name="group1A" style="width: 40px;" type="text" class="form-control" placeholder="">
-              </div>
-              <div class="form-inline">
-                <label for="group1B">2. Do you have inflammation, Heat spots ?................................................. </label>
-                <input id="group1B" (keyup)="findTotal()"  [(ngModel)]="group1B" name="group1B" style="width: 40px;" type="text" class="form-control" placeholder="">
-              </div>
-              <div class="form-inline">
-                <label for="group1C">3. Do you have specific pain ? ( printed, then list on Back)................... </label>
-                <input id="group1C" [(ngModel)]="group1C" name="group1C" style="width: 40px;" type="text" class="form-control" placeholder="">
-              </div>
-              <div class="form-inline">
-                <label for="group1D">4. Do you have swelling?..................................................................................... </label>
-                <input id="group1D" [(ngModel)]="group1D" name="group1D" style="width: 40px;" type="text" class="form-control" placeholder="">
-              </div>
-              <div class="form-inline">
-                <label for="group1E">5. Do you have pus, open sores, skin problems, mucus formation ?</label>
-                <input id="group1E" [(ngModel)]="group1E" name="group1E" style="width: 40px;" type="text" class="form-control" placeholder="">
-              </div>
-              <div class="form-inline">
-                  <strong>Group 1  Total = {{ group1Total }}</strong>..................................................................................................... <input type="text" class="form-control" style="width: 50px;" id="group1" name="group1"> 
-             </div>
-            </div>
-
-           
-
-            <div class="col-xs-12" style="border:1px solid black;">
-              <div>Group 3</div>
-              <div class="form-inline">
-                <label for="group1C">3. Do you have specific pain ? ( printed, then list on Back) </label>
-                <input id="group1C" [(ngModel)]="group1C" name="group1C" style="width: 5px;" type="text" class="form-control" placeholder="">
-              </div>
-              <div class="form-inline">
-                <label for="group1D">2. Do you have inflammation, Heat spots ? </label>
-                <input id="group1D" [(ngModel)]="group1D" name="group1D" style="width: 5px;" type="text" class="form-control" placeholder="">
+              <div class="col-xs-12" style="border:1px solid black; padding:10px">
+                <div>
+                  <strong>Group 1</strong>
+                </div>
+                <div class="form-inline">
+                  <label>1. Are you Prone to Infection, colds, coughs, or flu ?.............................. </label>
+                  <input onlynumbers="true" (keyup)="findTotal()" ng-maxlength="1" id="group1A" [(ngModel)]="group1A" name="group1A" style="width: 40px;"
+                    type="text" class="form-control" placeholder="">
+                </div>
+                <div class="form-inline">
+                  <label for="group1B">2. Do you have inflammation, Heat spots ?................................................. </label>
+                  <input id="group1B" (keyup)="findTotal()" [(ngModel)]="group1B" name="group1B" style="width: 40px;" type="text" class="form-control"
+                    placeholder="">
+                </div>
+                <div class="form-inline">
+                  <label for="group1C">3. Do you have specific pain ? ( printed, then list on Back)................... </label>
+                  <input id="group1C" [(ngModel)]="group1C" name="group1C" style="width: 40px;" type="text" class="form-control" placeholder="">
+                </div>
+                <div class="form-inline">
+                  <label for="group1D">4. Do you have swelling?.....................................................................................
+                    </label>
+                  <input id="group1D" [(ngModel)]="group1D" name="group1D" style="width: 40px;" type="text" class="form-control" placeholder="">
+                </div>
+                <div class="form-inline">
+                  <label for="group1E">5. Do you have pus, open sores, skin problems, mucus formation ?</label>
+                  <input id="group1E" [(ngModel)]="group1E" name="group1E" style="width: 40px;" type="text" class="form-control" placeholder="">
+                </div>
+                <div class="form-inline">
+                  <strong>Group 1 Total = {{ group1Total }}</strong>.....................................................................................................
+                  <input type="text" class="form-control" style="width: 50px;" id="group1" name="group1">
+                </div>
               </div>
 
-            </div>
-          </div>
-          <div class="row">
 
-            <div class="col-xs-12" style="border:1px solid black; padding:10px">
-              <div>Group 1</div>
-              <div class="form-inline">
-                <label>1. Are you Prone to Infection, colds, coughs, or flu ? </label>
-                <input id="group1A" [(ngModel)]="group1Av" name="group1A" style="width: 5px;" type="text" class="form-control" placeholder="">
-              </div>
-              <div class="form-inline">
-                <label for="group1B">2. Do you have inflammation, Heat spots ? </label>
-                <input id="group1B" [(ngModel)]="group1Bv" name="group1B" style="width: 5px;" type="text" class="form-control" placeholder="">
+
+              <div class="col-xs-12" style="border:1px solid black;">
+                <div>Group 3</div>
+                <div class="form-inline">
+                  <label for="group1C">3. Do you have specific pain ? ( printed, then list on Back) </label>
+                  <input id="group1C" [(ngModel)]="group1C" name="group1C" style="width: 5px;" type="text" class="form-control" placeholder="">
+                </div>
+                <div class="form-inline">
+                  <label for="group1D">2. Do you have inflammation, Heat spots ? </label>
+                  <input id="group1D" [(ngModel)]="group1D" name="group1D" style="width: 5px;" type="text" class="form-control" placeholder="">
+                </div>
+
               </div>
             </div>
+            <div class="row">
 
-            <div class="col-xs-12" style="border:1px solid black;">
-              <div>Group 3</div>
-              <div class="form-inline">
-                <label for="group1Cv">3. Do you have specific pain ? ( printed, then list on Back) </label>
-                <input id="group1Cv" [(ngModel)]="group1Cv" name="group1Cv" style="width: 5px;" type="text" class="form-control" placeholder="">
-              </div>
-              <div class="form-inline">
-                <label for="group1Dv">2. Do you have inflammation, Heat spots ? </label>
-                <input id="group1Dv" required [(ngModel)]="group1Dv" name="group1Dv" style="width: 5px;" type="text" class="form-control" placeholder="">
+              <div class="col-xs-12" style="border:1px solid black; padding:10px">
+                <div>Group 1</div>
+                <div class="form-inline">
+                  <label>1. Are you Prone to Infection, colds, coughs, or flu ? </label>
+                  <input id="group1A" [(ngModel)]="group1Av" name="group1A" style="width: 5px;" type="text" class="form-control" placeholder="">
+                </div>
+                <div class="form-inline">
+                  <label for="group1B">2. Do you have inflammation, Heat spots ? </label>
+                  <input id="group1B" [(ngModel)]="group1Bv" name="group1B" style="width: 5px;" type="text" class="form-control" placeholder="">
+                </div>
               </div>
 
+              <div class="col-xs-12" style="border:1px solid black;">
+                <div>Group 3</div>
+                <div class="form-inline">
+                  <label for="group1Cv">3. Do you have specific pain ? ( printed, then list on Back) </label>
+                  <input id="group1Cv" [(ngModel)]="group1Cv" name="group1Cv" style="width: 5px;" type="text" class="form-control" placeholder="">
+                </div>
+                <div class="form-inline">
+                  <label for="group1Dv">2. Do you have inflammation, Heat spots ? </label>
+                  <input id="group1Dv" required [(ngModel)]="group1Dv" name="group1Dv" style="width: 5px;" type="text" class="form-control"
+                    placeholder="">
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
-</div>
 
-{{[1,2,3, 4] | sum}}
-<!-- 1. Are you Prone to Infection, colds, coughs, flu ? 0 to 5 2. Do you have inflammation , Heat spots 3. Do you have specific
+  {{[1,2,3, 4] | sum}}
+  <!-- 1. Are you Prone to Infection, colds, coughs, flu ? 0 to 5 2. Do you have inflammation , Heat spots 3. Do you have specific
 pain ( list on Back ) 4. Do you have swelling? 5. Do you have pus, open sores, skin problems, mucus formation -->
 
-<!-- <div class="form-group">
+  <!-- <div class="form-group">
     <label for="group1A">Are you Prone to Infection, colds, coughs, or flu? </label>
     <input id="group1A" [(ngModel)]="group1A" name="group1A" type="text" class="form-control" placeholder="">
 </div>
@@ -190,23 +194,31 @@ pain ( list on Back ) 4. Do you have swelling? 5. Do you have pus, open sores, s
 
 
 
-<br> Symptoms Analysis Format - Based on Basic Symptoms you are aware of Name (Print Clearly ) Date Area Code - cell Number Town
-State Zip Occupation Company Name Time on Job Enjoy Job yes or no Stressed out Area Code Phone number Code Business Phone
-Medical Doctor Chiropractor Nutritionist Last Visit last visit last visit Referred by or learned about through …. List Medication
-Reason for medication? List Vitamin & Supplements Height Weight High school Weight Blood Pressure Pulse Rate List of Illnesses
-
-
-Qty1 : <input onkeyup="findTotal()" type="text" name="qty" id="qty1"/><br>
-Qty2 : <input onblur="findTotal()" type="text" name="qty" id="qty2"/><br>
-Qty3 : <input onblur="findTotal()" type="text" name="qty" id="qty3"/><br>
-Qty4 : <input onblur="findTotal()" type="text" name="qty" id="qty4"/><br>
-Qty5 : <input onblur="findTotal()" type="text" name="qty" id="qty5"/><br>
-Qty6 : <input onblur="findTotal()" type="text" name="qty" id="qty6"/><br>
-Qty7 : <input onblur="findTotal()" type="text" name="qty" id="qty7"/><br>
-Qty8 : <input onblur="findTotal()" type="text" name="qty" id="qty8"/><br>
-<br><br>
-Total : <input type="text" name="total" id="total"/>
-<!-- 
+  <br> Symptoms Analysis Format - Based on Basic Symptoms you are aware of Name (Print Clearly ) Date Area Code - cell Number
+  Town State Zip Occupation Company Name Time on Job Enjoy Job yes or no Stressed out Area Code Phone number Code Business
+  Phone Medical Doctor Chiropractor Nutritionist Last Visit last visit last visit Referred by or learned about through ….
+  List Medication Reason for medication? List Vitamin & Supplements Height Weight High school Weight Blood Pressure Pulse
+  Rate List of Illnesses Qty1 :
+  <input onkeyup="findTotal()" type="text" name="qty" id="qty1" />
+  <br> Qty2 :
+  <input onblur="findTotal()" type="text" name="qty" id="qty2" />
+  <br> Qty3 :
+  <input onblur="findTotal()" type="text" name="qty" id="qty3" />
+  <br> Qty4 :
+  <input onblur="findTotal()" type="text" name="qty" id="qty4" />
+  <br> Qty5 :
+  <input onblur="findTotal()" type="text" name="qty" id="qty5" />
+  <br> Qty6 :
+  <input onblur="findTotal()" type="text" name="qty" id="qty6" />
+  <br> Qty7 :
+  <input onblur="findTotal()" type="text" name="qty" id="qty7" />
+  <br> Qty8 :
+  <input onblur="findTotal()" type="text" name="qty" id="qty8" />
+  <br>
+  <br>
+  <br> Total :
+  <input type="text" name="total" id="total" />
+  <!-- 
 Symptoms Analysis Format - Based on Basic Symptoms you are aware of 
 
 Name   (Print Clearly )                      Date          Area Code -  cell Number  
@@ -239,7 +251,7 @@ Blood Pressure    Pulse Rate       List of Illnesses -->
 
 
 
-<!-- 
+  <!-- 
 <div class="row">
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="border:1px solid black;">
     <div class="form-group row">
@@ -270,8 +282,8 @@ Blood Pressure    Pulse Rate       List of Illnesses -->
     </div>
   </div> -->
 
- 
-<!-- 
+
+  <!-- 
   <div class="row">
     <div class="col-xs-12" style="border:1px solid black;">
       <div class="form-inline">
@@ -294,14 +306,74 @@ Blood Pressure    Pulse Rate       List of Illnesses -->
 </form>
 
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <form #f="ngForm" ngNativeValidate>
+
+
+  <div class="col-sm-2">
   <input required type="text" name="firstName" ngModel>
+  </div>
+  <div class="col-sm-2">
+    <input type="text" class="form-control" [(ngModel)]="HearingDate" name="HearingDate" id="HearingDate" [minDate]="minDate"
+      [maxDate]="maxDate" #dp="bsDatepicker" bsDatepicker [(bsValue)]="bsValue" [bsConfig]="dpConfig">
+  </div>
+  <div class="col-sm-2">
+    <input type="text" class="form-control" [(ngModel)]="ReporterDate" [(bsValue)]="xbsValue" name="ReporterDate" id="ReporterDate" [minDate]="minDate"
+      [maxDate]="maxDate" #xdp="bsDatepicker" bsDatepicker [(bsValue)]="xbsValue" [bsConfig]="dpConfig">
+  </div>
   <button type="submit">Submit</button>
+
+
+  <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 </form>
 
 {{ f.pristine }}
 
-<br><br>
-
-
+<br>
+<br>

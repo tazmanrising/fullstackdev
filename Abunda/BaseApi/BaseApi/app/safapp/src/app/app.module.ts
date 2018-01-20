@@ -11,6 +11,11 @@ import { OnlyNumbers } from './core/directives/onlynumbrer.directive';
 import { NgPipesModule} from 'ngx-pipes';
 
 
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +26,9 @@ import { NgPipesModule} from 'ngx-pipes';
   imports: [
     BrowserModule,
     FormsModule,
-    NgPipesModule
+    NgPipesModule,
+    BsDatepickerModule.forRoot(),
+    TimepickerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
